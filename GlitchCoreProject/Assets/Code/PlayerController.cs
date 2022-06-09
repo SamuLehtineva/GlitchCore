@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private float velocity = 3;
 
-    private float jumpSpeed = 8;
+    public float jumpSpeed = 8;
 
     private Vector2 moveInput;
 
