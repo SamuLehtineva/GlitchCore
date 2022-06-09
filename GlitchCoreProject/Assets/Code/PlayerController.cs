@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody player;
 
-    private float velocity = 3;
+    public float speed = 100f;
 
     public float jumpSpeed = 8;
 
@@ -31,10 +31,16 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = playerInput.Player.Move.ReadValue<Vector2>();
         moveDirection = transform.forward * moveInput.y + transform.right * moveInput.x;
-        player.AddForce(moveDirection * velocity, ForceMode.Acceleration);
+        
     }
 
-    private void OnDisable()
+	void FixedUpdate()
+	{
+        //player.AddForce(moveDirection * velocity, ForceMode.Acceleration);
+        player.velocity = moveDirection * speed * Time.fixedDeltaTime;
+    }
+
+	private void OnDisable()
     {
         playerInput.Player.Move.Disable();
         playerInput.Player.Jump.Disable();
