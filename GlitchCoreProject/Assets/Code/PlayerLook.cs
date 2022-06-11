@@ -7,6 +7,10 @@ namespace GC.GlitchCoreProject
 {
     public class PlayerLook : MonoBehaviour
     {
+        public Transform player;
+        public float sensX = 100f;
+        public float sensY = 100f;
+
         private float mouseX;
 
         private float mouseY;
@@ -14,14 +18,9 @@ namespace GC.GlitchCoreProject
         private float xRotation;
 
         private float yRotation;
-
-        private float mouseSensitivity = 0.1f;
-
         private Vector2 lookDirection;
 
         private PlayerInput playerLook;
-
-        Camera mainCamera;
 
         void Awake()
         {
@@ -29,11 +28,6 @@ namespace GC.GlitchCoreProject
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-        }
-
-        void Start()
-        {
-            mainCamera = GetComponentInChildren<Camera>();
         }
 
         void Update()
@@ -55,16 +49,19 @@ namespace GC.GlitchCoreProject
         {
             lookDirection = playerLook.Player.Look.ReadValue<Vector2>();
 
-            mouseX = lookDirection.x * mouseSensitivity;
-            mouseY = lookDirection.y * mouseSensitivity;
+            mouseX = lookDirection.x * sensX;
+            mouseY = lookDirection.y * sensY;
 
             xRotation -= mouseY;
             yRotation += mouseX;
 
             xRotation = Mathf.Clamp(xRotation, -90f, 90);
 
-            mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-            transform.rotation = Quaternion.Euler(0, yRotation, 0);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            player.rotation = Quaternion.Euler(0, yRotation, 0);
+
+            /*mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            transform.rotation = Quaternion.Euler(0, yRotation, 0);*/
         }
     }
 }

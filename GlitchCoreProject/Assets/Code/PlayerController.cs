@@ -7,9 +7,17 @@ namespace GC.GlitchCoreProject
 {
     public class PlayerController : MonoBehaviour
     {
-        public float moveSpeed = 100f;
-
+        public float moveSpeed = 7f;
+        public float groundDrag;
         public float jumpSpeed = 8;
+        public float jumpCooldown;
+        public float airMultiplier;
+        bool canJump;
+
+        [Header("Ground Check")]
+        public float playerHeight;
+        public LayerMask groundMask;
+        bool isGrounded;
 
         private Vector2 moveInput;
         private Vector3 moveDirection;
@@ -24,11 +32,25 @@ namespace GC.GlitchCoreProject
         void Start()
         {
             rigid = GetComponent<Rigidbody>();
+            ResetJump();
         }
 
         void Update()
         {
+            Debug.Log(isGrounded);
             ReadInput();
+            SpeedControl();
+
+            isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, groundMask);
+            if (isGrounded)
+			{
+                rigid.drag = groundDrag;
+			}
+            else
+			{
+                rigid.drag = 0;
+			}
+            
         }
 
         void FixedUpdate()
@@ -45,18 +67,49 @@ namespace GC.GlitchCoreProject
         void MovePlayer()
         {
             moveDirection = transform.forward * moveInput.y + transform.right * moveInput.x;
-            rigid.AddForce(moveDirection.normalized * moveSpeed, ForceMode.Acceleration);
+
+            if (isGrounded)
+			{
+                rigid.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            }
+            else
+			{
+                rigid.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            }
         }
 
-        public void Jump(InputAction.CallbackContext context)
+        void Jump(InputAction.CallbackContext context)
         {
-            rigid.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            if (canJump && isGrounded)
+			{
+                rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
+                rigid.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
+                canJump = false;
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+            
 
             if (context.performed)
             {
 
             }
         }
+
+        void ResetJump()
+		{
+            canJump = true;
+		}
+
+        void SpeedControl()
+		{
+            Vector3 flatVel = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
+
+            if (flatVel.magnitude > moveSpeed)
+			{
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                rigid.velocity = new Vector3(limitedVel.x, rigid.velocity.y, limitedVel.z);
+			}
+		}
 
         private void OnDisable()
         {
