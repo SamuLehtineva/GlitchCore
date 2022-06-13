@@ -49,8 +49,8 @@ namespace GC.GlitchCoreProject
         {
             lookDirection = playerLook.Player.Look.ReadValue<Vector2>();
 
-            mouseX = lookDirection.x * sensX;
-            mouseY = lookDirection.y * sensY;
+            mouseX = lookDirection.x * Time.fixedDeltaTime * sensX;
+            mouseY = lookDirection.y * Time.fixedDeltaTime * sensY;
 
             xRotation -= mouseY;
             yRotation += mouseX;
