@@ -18,6 +18,7 @@ namespace GC.GlitchCoreProject
         private float xRotation;
 
         private float yRotation;
+
         private Vector2 lookDirection;
 
         private PlayerInput playerLook;

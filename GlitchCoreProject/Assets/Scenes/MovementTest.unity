@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1273709723}
+    - target: {fileID: 3422637342911623539, guid: dbb16e894b0d7bd4289e9fd962eb437e, type: 3}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 8454086941521704594, guid: dbb16e894b0d7bd4289e9fd962eb437e, type: 3}
       propertyPath: m_Name
       value: CameraHolder
