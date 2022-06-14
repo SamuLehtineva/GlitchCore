@@ -79,6 +79,7 @@ namespace GC.GlitchCoreProject
 
         void Jump(InputAction.CallbackContext context)
         {
+            Debug.Log("jump");
             if (canJump && isGrounded)
 			{
                 rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
