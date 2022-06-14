@@ -123,25 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &222083876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2013542535637914483, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-  m_PrefabInstance: {fileID: 771005921}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &222083877
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222083876}
-  m_Material: {fileID: 13400000, guid: 66efae3b4c010a344a7323bc04acaad9, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.65
-  m_Height: 1.85
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &666466030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,21 +203,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2013542535637914481, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013542535637914482, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 33412a7c533aa3d4cac5bf536aa3ca58, type: 2}
     - target: {fileID: 2013542535637914483, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013542535637914494, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914495, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_RootOrder
@@ -730,6 +699,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4745913896636448173, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
   m_PrefabInstance: {fileID: 771005921}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1665593942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1665593944}
+  - component: {fileID: 1665593943}
+  m_Layer: 0
+  m_Name: HudController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1665593943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665593942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617a5a0ecffd3e841ae21aa9ee58a557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1665593944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665593942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1016.77747, y: 721.5084, z: 22.432617}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1692623695
 GameObject:
   m_ObjectHideFlags: 0

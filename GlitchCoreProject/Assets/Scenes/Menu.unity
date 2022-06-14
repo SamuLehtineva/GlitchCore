@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 359135442}
   - component: {fileID: 359135441}
   - component: {fileID: 359135445}
+  - component: {fileID: 359135446}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -445,6 +446,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea24ce69dd9b6784489870907ee963aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &359135446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359135440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6acdd2aa1ae57749a6d703f3514ddcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &512832954
@@ -612,7 +625,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1004047121}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 359135445}
+        m_TargetAssemblyTypeName: GC.GlitchCoreProject.SceneChanger, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1004047121
 MonoBehaviour:
   m_ObjectHideFlags: 0

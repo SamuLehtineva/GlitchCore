@@ -37,7 +37,6 @@ namespace GC.GlitchCoreProject
 
         void Update()
         {
-            Debug.Log(isGrounded);
             ReadInput();
             SpeedControl();
 

@@ -134,6 +134,34 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""HUD"",
+            ""id"": ""8586f6d3-6fd7-4e5a-883f-12a6168a96f0"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7056a5ea-f8ab-4ca4-8a31-59301a944f51"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b9b90198-9459-4b23-8153-d5b21e8e1382"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -143,6 +171,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        // HUD
+        m_HUD = asset.FindActionMap("HUD", throwIfNotFound: true);
+        m_HUD_Pause = m_HUD.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -247,10 +278,47 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // HUD
+    private readonly InputActionMap m_HUD;
+    private IHUDActions m_HUDActionsCallbackInterface;
+    private readonly InputAction m_HUD_Pause;
+    public struct HUDActions
+    {
+        private @PlayerInput m_Wrapper;
+        public HUDActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_HUD_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_HUD; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HUDActions set) { return set.Get(); }
+        public void SetCallbacks(IHUDActions instance)
+        {
+            if (m_Wrapper.m_HUDActionsCallbackInterface != null)
+            {
+                @Pause.started -= m_Wrapper.m_HUDActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_HUDActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_HUDActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_HUDActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+        }
+    }
+    public HUDActions @HUD => new HUDActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+    }
+    public interface IHUDActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }
