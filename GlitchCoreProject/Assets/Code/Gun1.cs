@@ -18,7 +18,7 @@ namespace GC.GlitchCoreProject
 
 		void Fire(InputAction.CallbackContext context)
 		{
-			Instantiate(bullet, transform.position, orientation.rotation);
+			Instantiate(bullet, transform.position + transform.forward * 0.5f, orientation.rotation);
 		}
 
 		private void OnEnable()
