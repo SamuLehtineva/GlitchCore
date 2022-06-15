@@ -7,6 +7,9 @@ namespace GC.GlitchCoreProject
 {
     public class PlayerController : MonoBehaviour
     {
+        public Transform orientation;
+
+        [Header("Movement")]
         public float moveSpeed = 7f;
         public float groundDrag;
         public float jumpSpeed = 8;
@@ -65,7 +68,7 @@ namespace GC.GlitchCoreProject
 
         void MovePlayer()
         {
-            moveDirection = transform.forward * moveInput.y + transform.right * moveInput.x;
+            moveDirection = orientation.forward * moveInput.y + orientation.right * moveInput.x;
 
             if (isGrounded)
 			{

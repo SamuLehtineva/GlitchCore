@@ -8,7 +8,9 @@ namespace GC.GlitchCoreProject
     public class PlayerLook : MonoBehaviour
     {
         public Transform player;
+
         public float sensX = 100f;
+
         public float sensY = 100f;
 
         private float mouseX;
