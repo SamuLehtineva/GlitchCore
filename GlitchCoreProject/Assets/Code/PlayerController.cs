@@ -16,6 +16,7 @@ namespace GC.GlitchCoreProject
         public float jumpCooldown;
         public float airMultiplier;
         bool canJump;
+        bool canDoubleJump;
 
         [Header("Ground Check")]
         public float playerHeight;
@@ -47,6 +48,7 @@ namespace GC.GlitchCoreProject
             if (isGrounded)
 			{
                 rigid.drag = groundDrag;
+                ResetDoubleJump();
 			}
             else
 			{
@@ -90,7 +92,13 @@ namespace GC.GlitchCoreProject
                 canJump = false;
                 Invoke(nameof(ResetJump), jumpCooldown);
             }
-            
+            else if (canDoubleJump)
+			{
+                rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
+                rigid.AddForce(transform.up * jumpSpeed * 0.85f, ForceMode.Impulse);
+                canDoubleJump = false;
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
 
             if (context.performed)
             {
@@ -101,6 +109,11 @@ namespace GC.GlitchCoreProject
         void ResetJump()
 		{
             canJump = true;
+		}
+
+        void ResetDoubleJump()
+		{
+            canDoubleJump = true;
 		}
 
         void SpeedControl()
