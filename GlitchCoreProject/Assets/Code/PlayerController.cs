@@ -43,7 +43,7 @@ namespace GC.GlitchCoreProject
             ReadInput();
             SpeedControl();
 
-            isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, groundMask);
+            isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.4f, groundMask);
             if (isGrounded)
 			{
                 rigid.drag = groundDrag;
