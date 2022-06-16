@@ -29,11 +29,9 @@ namespace GC.GlitchCoreProject
             enemy.SetDestination(player.transform.position);
         }
 
-        public void OnTriggerEnter(Collider collider)
+        public void OnCollisionEnter(Collision collision)
         {
-            Bullet_1 bullet = collider.GetComponent<Bullet_1>();
-
-            if (bullet != null)
+            if (collision.gameObject.layer == 7)
             {
                 Destroy (gameObject);
             }
