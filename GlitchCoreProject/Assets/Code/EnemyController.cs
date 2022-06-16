@@ -7,8 +7,7 @@ namespace GC.GlitchCoreProject
 {
     public class EnemyController : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject player;
+        private PlayerController player;
 
         private NavMeshAgent enemy;
 
@@ -16,6 +15,7 @@ namespace GC.GlitchCoreProject
         void Start()
         {
             enemy = GetComponent<NavMeshAgent>();
+            player = GameObject.FindObjectOfType<PlayerController>();
         }
 
         // Update is called once per frame
@@ -27,6 +27,16 @@ namespace GC.GlitchCoreProject
         private void Seek()
         {
             enemy.SetDestination(player.transform.position);
+        }
+
+        public void OnTriggerEnter(Collider collider)
+        {
+            Bullet_1 bullet = collider.GetComponent<Bullet_1>();
+
+            if (bullet != null)
+            {
+                Destroy (gameObject);
+            }
         }
     }
 }
