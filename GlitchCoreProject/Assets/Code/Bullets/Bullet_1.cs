@@ -24,7 +24,6 @@ namespace GC.GlitchCoreProject
 
 		void OnCollisionEnter(Collision collision)
 		{
-            Debug.Log("coll");
             Destroy(this.gameObject);
 		}
 	}

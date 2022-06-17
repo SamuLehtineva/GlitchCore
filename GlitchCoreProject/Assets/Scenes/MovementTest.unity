@@ -291,6 +291,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1579878619, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: fireDelay
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579878619, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 895149873}

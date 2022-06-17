@@ -10,6 +10,9 @@ namespace GC.GlitchCoreProject
         public GameObject bullet;
 		public GameObject bullet2;
 		public Transform orientation;
+		public float fireDelay = 6f;
+
+		private float fireTimer = 0.0f;
         private PlayerInput playerInput;
         
         void Awake()
@@ -17,7 +20,32 @@ namespace GC.GlitchCoreProject
             playerInput = new PlayerInput();
 		}
 
-		void Fire(InputAction.CallbackContext context)
+		private void Update()
+		{
+			if (playerInput.Player.Fire1.IsPressed())
+			{
+				AttemptFire();
+			}
+		}
+
+		private void FixedUpdate()
+		{
+			if (fireTimer < fireDelay)
+			{
+				fireTimer += 1f;
+			}
+		}
+
+		void AttemptFire()
+		{
+			if (fireTimer >= fireDelay)
+			{
+				Fire();
+				fireTimer = 0.0f;
+			}
+		}
+
+		void Fire()
 		{
 			Instantiate(bullet, transform.position + orientation.forward * 0.5f, orientation.rotation);
 		}
@@ -30,7 +58,7 @@ namespace GC.GlitchCoreProject
 		private void OnEnable()
 		{
 			playerInput.Player.Fire1.Enable();
-			playerInput.Player.Fire1.performed += Fire;
+			//playerInput.Player.Fire1.performed += Fire;
 
 			playerInput.Player.Fire2.Enable();
 			playerInput.Player.Fire2.performed += Fire2;
@@ -39,7 +67,7 @@ namespace GC.GlitchCoreProject
 		private void OnDisable()
 		{
 			playerInput.Player.Fire1.Disable();
-			playerInput.Player.Fire1.performed -= Fire;
+			//playerInput.Player.Fire1.performed -= Fire;
 
 			playerInput.Player.Fire2.Disable();
 			playerInput.Player.Fire2.performed -= Fire2;
