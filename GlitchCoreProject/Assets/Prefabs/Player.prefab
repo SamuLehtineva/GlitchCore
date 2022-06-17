@@ -209,9 +209,9 @@ MonoBehaviour:
   orientation: {fileID: 1814571637}
   moveSpeed: 10
   groundDrag: 4
-  jumpSpeed: 14
+  jumpSpeed: 12
   jumpCooldown: 0.25
-  airMultiplier: 0.3
+  airMultiplier: 0.25
   playerHeight: 2
   groundMask:
     serializedVersion: 2
