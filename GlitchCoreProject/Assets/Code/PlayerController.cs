@@ -49,8 +49,8 @@ namespace GC.GlitchCoreProject
             ReadInput();
             SpeedControl();
 
-            /*Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.3f), transform.position.z), Color.blue, 2.5f);
-            Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.4f), transform.position.z), Color.red);*/
+            //Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.3f), transform.position.z), Color.blue, 2.5f);
+            //Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.4f), transform.position.z), Color.red, 2.5f);
             isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.4f, groundMask);
             if (isGrounded)
 			{
@@ -80,11 +80,11 @@ namespace GC.GlitchCoreProject
 
             if (OnSlope() && !exitingSlope)
 			{
-                rigid.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+                rigid.AddForce(GetSlopeMoveDirection() * moveSpeed * 10f, ForceMode.Force);
                 
                 if (rigid.velocity.y > 0)
 				{
-                    rigid.AddForce(Vector3.down * 150f, ForceMode.Force);
+                    //rigid.AddForce(Vector3.down * 150f, ForceMode.Force);
 				}
 			}
 
@@ -97,7 +97,7 @@ namespace GC.GlitchCoreProject
                 rigid.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
             }
 
-            rigid.useGravity = !OnSlope();
+            //rigid.useGravity = !OnSlope();
         }
 
         void Jump(InputAction.CallbackContext context)
@@ -158,7 +158,7 @@ namespace GC.GlitchCoreProject
             if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
 			{
                 float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-                return angle < maxSlopeAngle && angle != 0;
+                return angle < maxSlopeAngle && (angle > 5 || angle < -5);
 			}
 
             return false;
