@@ -23,6 +23,11 @@ namespace GC.GlitchCoreProject
         public LayerMask groundMask;
         bool isGrounded;
 
+        [Header("Slope handling")]
+        public float maxSlopeAngle;
+        private RaycastHit slopeHit;
+        private bool exitingSlope;
+
         private Vector2 moveInput;
         private Vector3 moveDirection;
         private PlayerInput playerInput;
@@ -44,6 +49,8 @@ namespace GC.GlitchCoreProject
             ReadInput();
             SpeedControl();
 
+            /*Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.3f), transform.position.z), Color.blue, 2.5f);
+            Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.4f), transform.position.z), Color.red);*/
             isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.4f, groundMask);
             if (isGrounded)
 			{
@@ -60,7 +67,6 @@ namespace GC.GlitchCoreProject
         void FixedUpdate()
         {
             MovePlayer();
-            //player.velocity = moveDirection * speed * Time.fixedDeltaTime;
         }
 
         void ReadInput()
@@ -72,6 +78,16 @@ namespace GC.GlitchCoreProject
         {
             moveDirection = orientation.forward * moveInput.y + orientation.right * moveInput.x;
 
+            if (OnSlope() && !exitingSlope)
+			{
+                rigid.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+                
+                if (rigid.velocity.y > 0)
+				{
+                    rigid.AddForce(Vector3.down * 150f, ForceMode.Force);
+				}
+			}
+
             if (isGrounded)
 			{
                 rigid.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
@@ -80,34 +96,35 @@ namespace GC.GlitchCoreProject
 			{
                 rigid.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
             }
+
+            rigid.useGravity = !OnSlope();
         }
 
         void Jump(InputAction.CallbackContext context)
         {
+            exitingSlope = true;
             if (canJump && isGrounded)
 			{
-                rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
-                rigid.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
+                /*rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
+                rigid.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);*/
+                rigid.velocity = new Vector3(rigid.velocity.x, jumpSpeed, rigid.velocity.z);
                 canJump = false;
                 Invoke(nameof(ResetJump), jumpCooldown);
             }
             else if (canDoubleJump)
 			{
-                rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
-                rigid.AddForce(transform.up * jumpSpeed * 0.85f, ForceMode.Impulse);
+                /*rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
+                rigid.AddForce(transform.up * jumpSpeed * 0.85f, ForceMode.Impulse);*/
+                rigid.velocity = new Vector3(rigid.velocity.x, jumpSpeed * 0.85f, rigid.velocity.z);
                 canDoubleJump = false;
                 Invoke(nameof(ResetJump), jumpCooldown);
-            }
-
-            if (context.performed)
-            {
-
             }
         }
 
         void ResetJump()
 		{
             canJump = true;
+            exitingSlope = false;
 		}
 
         void ResetDoubleJump()
@@ -117,13 +134,39 @@ namespace GC.GlitchCoreProject
 
         void SpeedControl()
 		{
-            Vector3 flatVel = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
-
-            if (flatVel.magnitude > moveSpeed)
+            if (OnSlope() && !exitingSlope)
 			{
-                Vector3 limitedVel = flatVel.normalized * moveSpeed;
-                rigid.velocity = new Vector3(limitedVel.x, rigid.velocity.y, limitedVel.z);
+                if (rigid.velocity.magnitude > moveSpeed)
+				{
+                    rigid.velocity = rigid.velocity.normalized * moveSpeed;
+				}
 			}
+			else
+			{
+                Vector3 flatVel = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
+
+                if (flatVel.magnitude > moveSpeed)
+                {
+                    Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                    rigid.velocity = new Vector3(limitedVel.x, rigid.velocity.y, limitedVel.z);
+                }
+            }
+		}
+
+        private bool OnSlope()
+		{
+            if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+			{
+                float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+                return angle < maxSlopeAngle && angle != 0;
+			}
+
+            return false;
+		}
+
+        private Vector3 GetSlopeMoveDirection()
+		{
+            return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
 		}
 
         private void OnDisable()

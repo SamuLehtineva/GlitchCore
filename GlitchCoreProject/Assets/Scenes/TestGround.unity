@@ -6092,9 +6092,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: 569c26ad19f93ec4bacf23bb93dcffaf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 569c26ad19f93ec4bacf23bb93dcffaf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 569c26ad19f93ec4bacf23bb93dcffaf, type: 3}
       propertyPath: m_Name
       value: Escalator_test2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 569c26ad19f93ec4bacf23bb93dcffaf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 569c26ad19f93ec4bacf23bb93dcffaf, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569c26ad19f93ec4bacf23bb93dcffaf, type: 3}
@@ -16073,9 +16089,25 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1982689932}
+    - target: {fileID: 2013542535637914481, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914483, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013542535637914493, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: jumpSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013542535637914493, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: maxSlopeAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013542535637914494, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914495, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_RootOrder

@@ -14,19 +14,9 @@ namespace GC.GlitchCoreProject
             playerInput = new PlayerInput();
 		}
 
-		void Start()
-        {
-        
-        }
-
-        void Update()
-        {
-        
-        }
-
 		void Pause(InputAction.CallbackContext context)
 		{
-			SceneChanger.LoadLevel("Menu");
+			//SceneChanger.LoadLevel("Menu");
 		}
 
 		void OnEnable()
