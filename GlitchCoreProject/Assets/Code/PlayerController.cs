@@ -85,11 +85,12 @@ namespace GC.GlitchCoreProject
                 
                 if (!exitingSlope)
 				{
-                    if (GetSlopeMoveDirection().y < -0.1f)
+                    if (GetSlopeMoveDirection().y < 0.1f)
 					{
                         rigid.AddForce(Vector3.down * 80f, ForceMode.Force);
                     }
-                    else if (rigid.velocity.y < 0f)
+                    
+                    if (rigid.velocity.y < 0f && GetSlopeMoveDirection().y > -0.1f)
 					{
                         rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
 					}
