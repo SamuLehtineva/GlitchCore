@@ -7,7 +7,7 @@ namespace GC.GlitchCoreProject
 {
     public class InputManager : MonoBehaviour
     {
-        PlayerInput playerInput;
+        public PlayerInput playerInput;
         public PlayerInput.PlayerActions playerActions;
         public PlayerInput.HUDActions hudActions;
        

@@ -14,11 +14,13 @@ namespace GC.GlitchCoreProject
 
 		private float fireTimer = 0.0f;
 		private bool tryFire1;
-		private PlayerInput.PlayerActions playerActions;
+		PlayerInput playerInput;
+		//private PlayerInput.PlayerActions playerActions;
         
         void Awake()
 		{
-			playerActions = GameObject.Find("InputManager").GetComponent<InputManager>().playerActions;
+			playerInput = new PlayerInput();
+			//playerActions = GameObject.Find("InputManager").GetComponent<InputManager>().playerActions;
 		}
 
 		private void Update()
@@ -54,29 +56,26 @@ namespace GC.GlitchCoreProject
 		void Fire2(InputAction.CallbackContext context)
 		{
 			Instantiate(bullet2, transform.position + orientation.forward * 0.5f, orientation.rotation);
-
-			if (context.performed)
-			{
-				Debug.Log("done");
-			}
-			if (context.canceled)
-			{
-				Debug.Log("canc");
-			}
 		}
 
 		private void OnEnable()
 		{
-			playerActions.Fire1.performed += _ => tryFire1 = true;
-			playerActions.Fire1.canceled += _ => tryFire1 = false;
-			playerActions.Fire2.performed += Fire2;
+			playerInput.Player.Fire1.Enable();
+			playerInput.Player.Fire2.Enable();
+
+			playerInput.Player.Fire1.performed += _ => tryFire1 = true;
+			playerInput.Player.Fire1.canceled += _ => tryFire1 = false;
+			playerInput.Player.Fire2.performed += Fire2;
 		}
 
 		private void OnDisable()
 		{
-			playerActions.Fire1.performed -= _ => tryFire1 = true;
-			playerActions.Fire1.canceled -= _ => tryFire1 = false;
-			playerActions.Fire2.performed -= Fire2;
+			playerInput.Player.Fire1.Disable();
+			playerInput.Player.Fire2.Disable();
+
+			playerInput.Player.Fire1.performed -= _ => tryFire1 = true;
+			playerInput.Player.Fire1.canceled -= _ => tryFire1 = false;
+			playerInput.Player.Fire2.performed -= Fire2;
 		}
 	}
 }
