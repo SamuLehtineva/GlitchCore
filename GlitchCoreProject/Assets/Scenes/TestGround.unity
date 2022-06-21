@@ -16089,25 +16089,9 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1982689932}
-    - target: {fileID: 2013542535637914481, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914483, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013542535637914493, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: jumpSpeed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013542535637914493, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: maxSlopeAngle
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013542535637914494, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: m_Constraints
-      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914495, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_RootOrder
