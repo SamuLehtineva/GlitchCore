@@ -9,15 +9,10 @@ namespace GC.GlitchCoreProject
     {
         public Transform orientation;
         public float fireDelay;
+        public InputManager inputManager;
 
+        private PlayerInput playerInput;
         private float fireTimer = 0.0f;
-        private PlayerInput.PlayerActions playerActions;
-
-        void Awake()
-		{
-            playerActions = GameObject.Find("InputManager").GetComponent<InputManager>().playerActions;
-        }
-
         
         void FixedUpdate()
 		{
@@ -29,12 +24,26 @@ namespace GC.GlitchCoreProject
 
         void Fire1(InputAction.CallbackContext context)
 		{
-
+            if (fireTimer >= fireDelay)
+			{
+                Debug.Log("gun2");
+                fireTimer = 0f;
+			}
 		}
 
 		private void OnEnable()
 		{
-            playerActions.Fire1.performed += Fire1;
+            Debug.Log("OnEnable");
+            playerInput = inputManager.playerInput;
+
+            playerInput.Player.Fire1.Enable();
+            playerInput.Player.Fire1.performed += Fire1;
+		}
+
+		private void OnDisable()
+		{
+            playerInput.Player.Fire1.Disable();
+            playerInput.Player.Fire1.performed -= Fire1;
 		}
 	}
 }
