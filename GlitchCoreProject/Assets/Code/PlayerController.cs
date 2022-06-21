@@ -78,13 +78,21 @@ namespace GC.GlitchCoreProject
         {
             moveDirection = orientation.forward * moveInput.y + orientation.right * moveInput.x;
 
-            if (OnSlope() && !exitingSlope)
+            if (OnSlope())
 			{
+                
                 rigid.AddForce(GetSlopeMoveDirection() * moveSpeed * 10f, ForceMode.Force);
                 
-                if (rigid.velocity.y > 0)
+                if (!exitingSlope)
 				{
-                    //rigid.AddForce(Vector3.down * 150f, ForceMode.Force);
+                    if (GetSlopeMoveDirection().y < -0.1f)
+					{
+                        rigid.AddForce(Vector3.down * 80f, ForceMode.Force);
+                    }
+                    else if (rigid.velocity.y < 0f)
+					{
+                        rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
+					}
 				}
 			}
 
