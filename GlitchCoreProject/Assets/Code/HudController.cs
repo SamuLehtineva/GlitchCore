@@ -16,7 +16,7 @@ namespace GC.GlitchCoreProject
 
 		void Pause(InputAction.CallbackContext context)
 		{
-			//SceneChanger.LoadLevel("Menu");
+			SceneChanger.LoadLevel("Menu");
 		}
 
 		void OnEnable()
