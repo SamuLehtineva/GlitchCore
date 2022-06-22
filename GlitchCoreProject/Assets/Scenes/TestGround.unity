@@ -16155,7 +16155,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1579878617, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1579878619, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: orientation
