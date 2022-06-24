@@ -361,18 +361,6 @@ PrefabInstance:
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 49670979}
-    - target: {fileID: 4858414438511118578, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: guns.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4858414438511118578, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: guns.Array.data[0]
-      value: 
-      objectReference: {fileID: 1070091813}
-    - target: {fileID: 4858414438511118578, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: guns.Array.data[1]
-      value: 
-      objectReference: {fileID: 901498376}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
 --- !u!1 &819233060
@@ -568,16 +556,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &901498376 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579878617, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-  m_PrefabInstance: {fileID: 771005921}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1070091813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1070091813, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-  m_PrefabInstance: {fileID: 771005921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1086110789
 GameObject:
   m_ObjectHideFlags: 0

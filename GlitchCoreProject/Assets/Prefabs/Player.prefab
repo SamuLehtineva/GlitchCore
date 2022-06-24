@@ -323,7 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed5e1a4172c96b4ea0971e59eda2d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guns: []
+  guns:
+  - {fileID: 1579878617}
+  - {fileID: 1070091813}
   currentGun: 0
   inputManager: {fileID: 0}
 --- !u!1 &4745913896636448172

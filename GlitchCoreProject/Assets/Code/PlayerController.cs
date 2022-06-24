@@ -49,8 +49,6 @@ namespace GC.GlitchCoreProject
             ReadInput();
             SpeedControl();
 
-            //Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.3f), transform.position.z), Color.blue, 2.5f);
-            //Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - (playerHeight * 0.5f + 0.4f), transform.position.z), Color.red, 2.5f);
             isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.4f, groundMask);
             if (isGrounded)
 			{
@@ -114,16 +112,12 @@ namespace GC.GlitchCoreProject
             exitingSlope = true;
             if (canJump && isGrounded)
 			{
-                /*rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
-                rigid.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);*/
                 rigid.velocity = new Vector3(rigid.velocity.x, jumpSpeed, rigid.velocity.z);
                 canJump = false;
                 Invoke(nameof(ResetJump), jumpCooldown);
             }
             else if (canDoubleJump)
 			{
-                /*rigid.velocity = new Vector3(rigid.velocity.x, 0f, rigid.velocity.z);
-                rigid.AddForce(transform.up * jumpSpeed * 0.85f, ForceMode.Impulse);*/
                 rigid.velocity = new Vector3(rigid.velocity.x, jumpSpeed * 0.85f, rigid.velocity.z);
                 canDoubleJump = false;
                 Invoke(nameof(ResetJump), jumpCooldown);
