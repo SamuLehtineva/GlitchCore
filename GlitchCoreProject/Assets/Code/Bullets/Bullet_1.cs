@@ -8,6 +8,7 @@ namespace GC.GlitchCoreProject
     {
         public float speed;
         public float lifeTime;
+        public GameObject impact;
 
         float timer = 0.0f;
         
@@ -24,6 +25,7 @@ namespace GC.GlitchCoreProject
 
 		void OnCollisionEnter(Collision collision)
 		{
+            Instantiate(impact, transform.position, transform.rotation);
             Destroy(this.gameObject);
 		}
 	}
