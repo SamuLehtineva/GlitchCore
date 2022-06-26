@@ -28,6 +28,9 @@ namespace GC.GlitchCoreProject
         private RaycastHit slopeHit;
         private bool exitingSlope;
 
+        [Header("Dash")]
+        public float dashSpeed;
+
         private Vector2 moveInput;
         private Vector3 moveDirection;
         private PlayerInput playerInput;
@@ -172,10 +175,20 @@ namespace GC.GlitchCoreProject
             return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
 		}
 
+        void Dash(InputAction.CallbackContext context)
+		{
+            rigid.AddForce(moveDirection.normalized * dashSpeed * 10f, ForceMode.Impulse);
+        }
+
         private void OnDisable()
         {
             playerInput.Player.Move.Disable();
+
             playerInput.Player.Jump.Disable();
+            playerInput.Player.Jump.performed -= Jump;
+
+            playerInput.Player.Dash.Disable();
+            playerInput.Player.Dash.performed -= Dash;
         }
 
         private void OnEnable()
@@ -184,6 +197,9 @@ namespace GC.GlitchCoreProject
 
             playerInput.Player.Jump.performed += Jump;
             playerInput.Player.Jump.Enable();
+
+            playerInput.Player.Dash.Enable();
+            playerInput.Player.Dash.performed += Dash;
         }
         
     }
