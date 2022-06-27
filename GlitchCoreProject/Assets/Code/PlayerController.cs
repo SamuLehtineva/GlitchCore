@@ -33,6 +33,7 @@ namespace GC.GlitchCoreProject
         public float dashDuration;
         public float dashCooldown = 1.5f;
         private float dashTimer;
+        private float dashCooldownTimer;
         private Vector3 dashDirection;
 
         private Vector2 moveInput;
@@ -49,6 +50,7 @@ namespace GC.GlitchCoreProject
         {
             rigid = GetComponent<Rigidbody>();
             ResetJump();
+            dashCooldownTimer = dashCooldown;
         }
 
         void Update()
@@ -73,6 +75,7 @@ namespace GC.GlitchCoreProject
         {
             MovePlayer();
             DashMove();
+            DashCooldown();
         }
 
         void ReadInput()
@@ -182,8 +185,12 @@ namespace GC.GlitchCoreProject
 
         void StartDash(InputAction.CallbackContext context)
 		{
-            dashDirection = moveDirection;
-            dashTimer = 0f;
+            if (dashCooldownTimer >= dashCooldown)
+			{
+                dashDirection = moveDirection;
+                dashTimer = 0f;
+                dashCooldownTimer = 0f;
+            }
         }
 
         void DashMove()
@@ -194,6 +201,14 @@ namespace GC.GlitchCoreProject
                 rigid.velocity = new Vector3(rigid.velocity.x, 0, rigid.velocity.y);
                 dashTimer += Time.fixedDeltaTime;
             }
+		}
+
+        void DashCooldown()
+		{
+            if (dashCooldownTimer < dashCooldown)
+			{
+                dashCooldownTimer += Time.deltaTime;
+			}
 		}
 
         private void OnDisable()

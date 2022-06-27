@@ -9,10 +9,12 @@ namespace GC.GlitchCoreProject
     {
         public Transform orientation;
         public float fireDelay;
+        public GameObject impactVfx;
         public InputManager inputManager;
 
         private PlayerInput playerInput;
         private float fireTimer = 0.0f;
+        private RaycastHit hit;
         
         void FixedUpdate()
 		{
@@ -26,7 +28,16 @@ namespace GC.GlitchCoreProject
 		{
             if (fireTimer >= fireDelay)
 			{
-                Debug.Log("gun2");
+                Debug.DrawLine(transform.position, orientation.forward * 50, Color.black, 5f);
+                if (Physics.Raycast(transform.position, orientation.forward, out hit, 50f))
+				{
+                    Instantiate(impactVfx, hit.point, transform.rotation);
+                    Debug.Log(hit.rigidbody);
+				}
+                else
+				{
+                    Debug.Log("jee");
+				}
                 fireTimer = 0f;
 			}
 		}

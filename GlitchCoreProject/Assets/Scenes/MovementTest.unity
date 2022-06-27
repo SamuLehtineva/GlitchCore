@@ -302,6 +302,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1070091815, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: fireDelay
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070091815, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: impactVfx
+      value: 
+      objectReference: {fileID: 4909011767388003483, guid: 1ef26c9d139555c4ba908f450a0d4b3d, type: 3}
+    - target: {fileID: 1070091815, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: orientation
+      value: 
+      objectReference: {fileID: 895149873}
+    - target: {fileID: 1070091815, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 49670979}
