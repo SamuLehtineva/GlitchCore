@@ -319,7 +319,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914493, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: dashSpeed
-      value: 35
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 2013542535637914493, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: dashDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914493, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: airMultiplier

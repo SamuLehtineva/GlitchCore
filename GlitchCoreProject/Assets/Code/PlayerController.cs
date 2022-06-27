@@ -30,6 +30,10 @@ namespace GC.GlitchCoreProject
 
         [Header("Dash")]
         public float dashSpeed;
+        public float dashDuration;
+        public float dashCooldown = 1.5f;
+        private float dashTimer;
+        private Vector3 dashDirection;
 
         private Vector2 moveInput;
         private Vector3 moveDirection;
@@ -68,6 +72,7 @@ namespace GC.GlitchCoreProject
         void FixedUpdate()
         {
             MovePlayer();
+            DashMove();
         }
 
         void ReadInput()
@@ -175,10 +180,21 @@ namespace GC.GlitchCoreProject
             return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
 		}
 
-        void Dash(InputAction.CallbackContext context)
+        void StartDash(InputAction.CallbackContext context)
 		{
-            rigid.AddForce(moveDirection.normalized * dashSpeed * 10f, ForceMode.Impulse);
+            dashDirection = moveDirection;
+            dashTimer = 0f;
         }
+
+        void DashMove()
+		{
+            if (dashTimer < dashDuration)
+			{
+                rigid.AddForce(dashDirection.normalized * dashSpeed * 10f, ForceMode.Force);
+                rigid.velocity = new Vector3(rigid.velocity.x, 0, rigid.velocity.y);
+                dashTimer += Time.fixedDeltaTime;
+            }
+		}
 
         private void OnDisable()
         {
@@ -188,7 +204,7 @@ namespace GC.GlitchCoreProject
             playerInput.Player.Jump.performed -= Jump;
 
             playerInput.Player.Dash.Disable();
-            playerInput.Player.Dash.performed -= Dash;
+            playerInput.Player.Dash.performed -= StartDash;
         }
 
         private void OnEnable()
@@ -199,7 +215,7 @@ namespace GC.GlitchCoreProject
             playerInput.Player.Jump.Enable();
 
             playerInput.Player.Dash.Enable();
-            playerInput.Player.Dash.performed += Dash;
+            playerInput.Player.Dash.performed += StartDash;
         }
         
     }
