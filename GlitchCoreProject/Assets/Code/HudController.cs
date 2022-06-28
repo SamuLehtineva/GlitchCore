@@ -16,7 +16,11 @@ namespace GC.GlitchCoreProject
 
 		void Pause(InputAction.CallbackContext context)
 		{
-			SceneChanger.LoadLevel("Menu");
+			if (!Application.isEditor)
+			{
+				SceneChanger.LoadLevel("Menu");
+			}
+			
 		}
 
 		void OnEnable()

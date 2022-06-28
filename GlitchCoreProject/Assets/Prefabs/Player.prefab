@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce0b7d79be1a8c439154d11dc208641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientation: {fileID: 1814571637}
-  fireDelay: 25
+  orientation: {fileID: 0}
+  fireDelay: 20
+  impactVfx: {fileID: 4909011767388003483, guid: 1ef26c9d139555c4ba908f450a0d4b3d, type: 3}
   inputManager: {fileID: 0}
 --- !u!1 &1579878617
 GameObject:
@@ -92,7 +93,7 @@ MonoBehaviour:
   bullet: {fileID: 4984036357306542794, guid: 98bcaf74b9512d24882559f7515ab61e, type: 3}
   bullet2: {fileID: 8399777283760812786, guid: 03abc3f8353af1e41ab4ef0b3d5b42bd, type: 3}
   orientation: {fileID: 0}
-  fireDelay: 10
+  fireDelay: 7
 --- !u!1 &1814571636
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,12 +259,15 @@ MonoBehaviour:
   groundDrag: 4
   jumpSpeed: 12
   jumpCooldown: 0.25
-  airMultiplier: 0.25
+  airMultiplier: 0.3
   playerHeight: 2
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   maxSlopeAngle: 55
+  dashSpeed: 130
+  dashDuration: 0.2
+  dashCooldown: 1.5
 --- !u!136 &222083877
 CapsuleCollider:
   m_ObjectHideFlags: 0
