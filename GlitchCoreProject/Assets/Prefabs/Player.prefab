@@ -92,8 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4984036357306542794, guid: 98bcaf74b9512d24882559f7515ab61e, type: 3}
   bullet2: {fileID: 8399777283760812786, guid: 03abc3f8353af1e41ab4ef0b3d5b42bd, type: 3}
-  orientation: {fileID: 0}
   fireDelay: 7
+  playerLook: {fileID: 0}
+  spawnPos: {fileID: 0}
 --- !u!1 &1814571636
 GameObject:
   m_ObjectHideFlags: 0
