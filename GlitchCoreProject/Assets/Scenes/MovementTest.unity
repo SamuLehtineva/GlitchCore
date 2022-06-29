@@ -207,6 +207,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 9a7dc5606af85bd4384d4bfa56e1078d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9a7dc5606af85bd4384d4bfa56e1078d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 81554a5fa9e510c4a83599f0ff268d4f, type: 2}
@@ -338,6 +342,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1661361496436908286, guid: dbb16e894b0d7bd4289e9fd962eb437e, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3422637342911623536, guid: dbb16e894b0d7bd4289e9fd962eb437e, type: 3}
       propertyPath: player
       value: 
@@ -411,6 +419,10 @@ PrefabInstance:
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 49670979}
+    - target: {fileID: 1579878619, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4984036357306542794, guid: 98bcaf74b9512d24882559f7515ab61e, type: 3}
     - target: {fileID: 1579878619, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: orientation
       value: 

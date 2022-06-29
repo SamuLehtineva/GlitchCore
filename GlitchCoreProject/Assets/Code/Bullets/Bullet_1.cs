@@ -33,11 +33,5 @@ namespace GC.GlitchCoreProject
                 Destroy(this.gameObject);
             }
 		}
-
-		void OnCollisionEnter(Collision collision)
-		{
-            /*Instantiate(impact, transform.position, transform.rotation);
-            Destroy(this.gameObject);*/
-		}
 	}
 }
