@@ -66,5 +66,13 @@ namespace GC.GlitchCoreProject
             /*mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
             transform.rotation = Quaternion.Euler(0, yRotation, 0);*/
         }
+
+        public Vector3 GetTarget()
+		{
+            RaycastHit hit;
+            int layerMask = (1 << 3) | (1 << 7);
+            Physics.Raycast(transform.position, transform.forward, out hit, 100f, ~layerMask);
+            return hit.point;
+		}
     }
 }

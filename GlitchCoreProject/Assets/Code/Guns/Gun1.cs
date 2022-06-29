@@ -11,6 +11,7 @@ namespace GC.GlitchCoreProject
 		public GameObject bullet2;
 		public Transform orientation;
 		public float fireDelay = 6f;
+		public PlayerLook playerLook;
 
 		private float fireTimer = 0.0f;
 		private bool tryFire1;
@@ -51,6 +52,7 @@ namespace GC.GlitchCoreProject
 		void Fire()
 		{
 			Instantiate(bullet, transform.position + orientation.forward * 0.5f, orientation.rotation);
+			Debug.Log(playerLook.GetTarget());
 		}
 
 		void Fire2(InputAction.CallbackContext context)
