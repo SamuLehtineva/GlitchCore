@@ -144,6 +144,17 @@ MonoBehaviour:
   - {fileID: 924767935}
   - {fileID: 1218493518}
   gunManager: {fileID: 1830127822}
+--- !u!114 &22694538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3422637342911623536, guid: dbb16e894b0d7bd4289e9fd962eb437e, type: 3}
+  m_PrefabInstance: {fileID: 666466030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22694536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873724e39c40adf4e8d9134deedc3c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &49670979 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3395381660044556418, guid: cd832c700ac0ed94a8f3f3a868ef791a, type: 3}
@@ -423,6 +434,10 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 4984036357306542794, guid: 98bcaf74b9512d24882559f7515ab61e, type: 3}
+    - target: {fileID: 1579878619, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 22694538}
     - target: {fileID: 1579878619, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: orientation
       value: 

@@ -9,18 +9,20 @@ namespace GC.GlitchCoreProject
     {
         public GameObject bullet;
 		public GameObject bullet2;
-		public Transform orientation;
 		public float fireDelay = 6f;
 		public PlayerLook playerLook;
+		public Transform spawnPos;
 
 		private float fireTimer = 0.0f;
 		private bool tryFire1;
 		PlayerInput playerInput;
+		Transform orientation;
 		//private PlayerInput.PlayerActions playerActions;
-        
-        void Awake()
+
+		void Awake()
 		{
 			playerInput = new PlayerInput();
+			orientation = playerLook.transform;
 			//playerActions = GameObject.Find("InputManager").GetComponent<InputManager>().playerActions;
 		}
 
@@ -51,7 +53,12 @@ namespace GC.GlitchCoreProject
 
 		void Fire()
 		{
-			Instantiate(bullet, transform.position + orientation.forward * 0.5f, orientation.rotation);
+			GameObject current = Instantiate(bullet, spawnPos.position + orientation.forward * 0.5f, orientation.rotation);
+			if (playerLook.GetTarget() != Vector3.zero)
+			{
+				current.transform.LookAt(playerLook.GetTarget());
+			}
+			
 			Debug.Log(playerLook.GetTarget());
 		}
 
