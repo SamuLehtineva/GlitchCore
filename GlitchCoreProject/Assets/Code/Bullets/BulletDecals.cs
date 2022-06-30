@@ -18,7 +18,6 @@ namespace GC.GlitchCoreProject
 		// Update is called once per frame
 		void Update()
         {
-            Debug.Log(activeDecals.Count);
             if (activeDecals.Count > maxActiveDecals)
 			{
                 Destroy(activeDecals[0]);

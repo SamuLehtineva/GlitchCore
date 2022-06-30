@@ -32,11 +32,8 @@ namespace GC.GlitchCoreProject
                 if (Physics.Raycast(transform.position, orientation.forward, out hit, 50f))
 				{
                     Instantiate(impactVfx, hit.point, transform.rotation);
+                    GameObject.Find("Managers/DecalManager").GetComponent<BulletDecals>().CreateDecal(hit, 0);
                     Debug.Log(hit.rigidbody);
-				}
-                else
-				{
-                    Debug.Log("jee");
 				}
                 fireTimer = 0f;
 			}
