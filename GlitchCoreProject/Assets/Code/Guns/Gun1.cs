@@ -58,8 +58,6 @@ namespace GC.GlitchCoreProject
 			{
 				current.transform.LookAt(playerLook.GetTarget());
 			}
-			
-			Debug.Log(playerLook.GetTarget());
 		}
 
 		void Fire2(InputAction.CallbackContext context)
