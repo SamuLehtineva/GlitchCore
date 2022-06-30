@@ -785,8 +785,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478ae051f699a1f439c431fb5e13b7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxActiveDecals: 10
   decals:
   - {fileID: 4713344414801301030, guid: 8eb0d6c10689d5e46b159b4039428b6b, type: 3}
+  activeDecals: []
 --- !u!1 &1367676461
 GameObject:
   m_ObjectHideFlags: 0
