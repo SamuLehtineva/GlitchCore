@@ -27,9 +27,11 @@ namespace GC.GlitchCoreProject
 
         void CheckHit()
 		{
-            if (Physics.Raycast(transform.position, transform.forward, 0.15f, ~layerMask))
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 0.15f, ~layerMask))
 			{
                 Instantiate(impact, transform.position, transform.rotation);
+                GameObject.Find("Managers/DecalManager").GetComponent<BulletDecals>().CreateDecal(hit, 0);
                 Destroy(this.gameObject);
             }
 		}
