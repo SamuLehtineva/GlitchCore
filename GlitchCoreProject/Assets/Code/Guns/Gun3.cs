@@ -34,6 +34,7 @@ namespace GC.GlitchCoreProject
                 {
                     current.transform.LookAt(playerLook.GetTarget());
                 }
+                fireTimer = 0.0f;
             }
 		}
 
