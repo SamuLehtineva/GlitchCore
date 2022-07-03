@@ -7,26 +7,37 @@ namespace GC.GlitchCoreProject
 {
     public class EnemyController : MonoBehaviour
     {
+        bool isMoving;
         private PlayerController player;
+        private NavMeshAgent navAgent;
+        private Animator animator;
 
-        private NavMeshAgent enemy;
-
-        // Start is called before the first frame update
         void Start()
         {
-            enemy = GetComponent<NavMeshAgent>();
+            navAgent = GetComponent<NavMeshAgent>();
             player = GameObject.FindObjectOfType<PlayerController>();
+            animator = GetComponentInChildren<Animator>();
         }
 
-        // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             Seek();
+
+            if (navAgent.remainingDistance >  navAgent.stoppingDistance)
+			{
+                isMoving = true;
+			}
+            else
+			{
+                isMoving = false;
+			}
+
+            animator.SetBool("isMoving", isMoving);
         }
 
         private void Seek()
         {
-            enemy.SetDestination(player.transform.position);
+            navAgent.SetDestination(player.transform.position);
         }
 
         public void OnCollisionEnter(Collision collision)
