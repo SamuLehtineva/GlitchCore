@@ -53,7 +53,7 @@ namespace GC.GlitchCoreProject
 
 		void Fire()
 		{
-			GameObject current = Instantiate(bullet, spawnPos.position + orientation.forward * 0.5f, orientation.rotation);
+			GameObject current = Instantiate(bullet, spawnPos.position, orientation.rotation);
 			if (playerLook.GetTarget() != Vector3.zero)
 			{
 				current.transform.LookAt(playerLook.GetTarget());
