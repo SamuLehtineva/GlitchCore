@@ -209,6 +209,7 @@ namespace GC.GlitchCoreProject
 			{
                 dashCooldownTimer += Time.deltaTime;
 			}
+            UIBar.instance.SetValue(dashCooldownTimer / dashCooldown);
 		}
 
         private void OnDisable()
