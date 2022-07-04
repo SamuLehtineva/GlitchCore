@@ -233,7 +233,15 @@ namespace GC.GlitchCoreProject
             playerInput.Player.Dash.Enable();
             playerInput.Player.Dash.performed += StartDash;
         }
-        
-    }
+
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.gameObject.layer == 11)
+			{
+                Debug.Log("ouch");
+			}
+		}
+
+	}
 }
 

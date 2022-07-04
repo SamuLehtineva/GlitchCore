@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8108880721152187475}
   - component: {fileID: 8108880721152187473}
   - component: {fileID: 8108880721152187472}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PulseParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 8108880722128288643}
   - component: {fileID: 8108880722128288642}
   - component: {fileID: 8108880722128288653}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: 4 inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 8108880722247851349}
   - component: {fileID: 8108880722247851348}
   - component: {fileID: 8108880722247851339}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PulseAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8108880722247851350}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
