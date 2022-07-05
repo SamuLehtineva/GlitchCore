@@ -9,6 +9,7 @@ namespace GC.GlitchCoreProject
     {
         public GameObject pulseAttack;
         public float moveSpeed;
+        public float attackDistance;
 
         bool isMoving;
         bool canAttack;
@@ -63,7 +64,7 @@ namespace GC.GlitchCoreProject
 
         IEnumerator AttackDelay()
 		{
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(2);
             navAgent.speed = moveSpeed;
             canAttack = true;
 		}
