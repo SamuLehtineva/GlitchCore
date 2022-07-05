@@ -11,12 +11,14 @@ namespace GC.GlitchCoreProject
         public float moveSpeed;
 
         bool isMoving;
+        bool canAttack;
         private PlayerController player;
         private NavMeshAgent navAgent;
         private Animator animator;
 
         void Start()
         {
+            canAttack = true;
             navAgent = GetComponent<NavMeshAgent>();
             player = GameObject.FindObjectOfType<PlayerController>();
             animator = GetComponentInChildren<Animator>();
@@ -38,8 +40,9 @@ namespace GC.GlitchCoreProject
 
             animator.SetBool("isMoving", isMoving);
 
-            if (navAgent.remainingDistance < 2)
+            if (navAgent.remainingDistance < 2 && canAttack)
 			{
+                Debug.Log("attack");
                 Attack();
 			}
         }
@@ -51,6 +54,7 @@ namespace GC.GlitchCoreProject
 
         void Attack()
 		{
+            canAttack = false;
             animator.SetTrigger("Attack");
             navAgent.speed = 0;
             Instantiate(pulseAttack, transform.position, transform.rotation);
@@ -61,6 +65,7 @@ namespace GC.GlitchCoreProject
 		{
             yield return new WaitForSeconds(4);
             navAgent.speed = moveSpeed;
+            canAttack = true;
 		}
 
         public void OnCollisionEnter(Collision collision)
