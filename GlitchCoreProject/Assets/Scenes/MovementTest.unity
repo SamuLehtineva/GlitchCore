@@ -1831,7 +1831,7 @@ PrefabInstance:
     - target: {fileID: 8273039285532562047, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
       propertyPath: spawnPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2049083451}
     - target: {fileID: 8273039285532562047, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
       propertyPath: pulseAttack
       value: 
