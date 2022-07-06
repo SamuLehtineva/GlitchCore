@@ -8,6 +8,7 @@ namespace GC.GlitchCoreProject
     public class EnemyController : MonoBehaviour
     {
         public GameObject pulseAttack;
+        public Transform spawnPoint;
         public float moveSpeed;
         public float attackDistance;
 
@@ -58,13 +59,13 @@ namespace GC.GlitchCoreProject
             canAttack = false;
             animator.SetTrigger("Attack");
             navAgent.speed = 0;
-            Instantiate(pulseAttack, transform.position, transform.rotation);
+            Instantiate(pulseAttack, spawnPoint.position, transform.rotation, transform);
             StartCoroutine(AttackDelay());
 		}
 
         IEnumerator AttackDelay()
 		{
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.25f);
             navAgent.speed = moveSpeed;
             canAttack = true;
 		}
