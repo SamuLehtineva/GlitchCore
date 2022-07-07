@@ -44,6 +44,7 @@ namespace GC.GlitchCoreProject
 
             playerInput.Player.Fire1.Enable();
             playerInput.Player.Fire1.performed += Fire1;
+            fireTimer = fireDelay * 0.75f;
         }
 
         private void OnDisable()

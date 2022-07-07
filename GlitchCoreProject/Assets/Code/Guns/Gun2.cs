@@ -32,7 +32,7 @@ namespace GC.GlitchCoreProject
                 if (Physics.Raycast(transform.position, orientation.forward, out hit, 50f))
 				{
                     Instantiate(impactVfx, hit.point, transform.rotation);
-                    GameObject.Find("Managers/DecalManager").GetComponent<BulletDecals>().CreateDecal(hit, 0);
+                    DecalManager.instance.CreateDecal(hit, 0);
                     Debug.Log(hit.rigidbody);
 				}
                 fireTimer = 0f;
@@ -46,7 +46,8 @@ namespace GC.GlitchCoreProject
 
             playerInput.Player.Fire1.Enable();
             playerInput.Player.Fire1.performed += Fire1;
-		}
+            fireTimer = fireDelay * 0.75f;
+        }
 
 		private void OnDisable()
 		{

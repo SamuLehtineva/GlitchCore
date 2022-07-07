@@ -11,7 +11,7 @@ namespace GC.GlitchCoreProject
         public GameObject impact;
 
         float timer = 0.0f;
-        int layerMask = 1 << 7;
+        int layerMask = (1 << 7) | (1 << 3);
         
         void Update()
         {
@@ -31,7 +31,7 @@ namespace GC.GlitchCoreProject
             if (Physics.Raycast(transform.position, transform.forward, out hit, 0.15f, ~layerMask))
 			{
                 Instantiate(impact, transform.position, transform.rotation);
-                GameObject.Find("Managers/DecalManager").GetComponent<BulletDecals>().CreateDecal(hit, 0);
+                DecalManager.instance.CreateDecal(hit, 0);
                 Destroy(this.gameObject);
             }
 		}

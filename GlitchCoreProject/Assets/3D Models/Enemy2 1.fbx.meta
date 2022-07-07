@@ -36,7 +36,12 @@ ModelImporter:
   - first:
       74: -1501100603418488817
     second: Armature|Walk2.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: 410d7490450366f48afed1349726a323, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -4,14 +4,16 @@ using UnityEngine;
 
 namespace GC.GlitchCoreProject
 {
-    public class BulletDecals : MonoBehaviour
+    public class DecalManager : MonoBehaviour
     {
+        public static DecalManager instance;
         public int maxActiveDecals;
         public GameObject[] decals;
         public List<GameObject> activeDecals;
 
 		private void Awake()
 		{
+            instance = this;
             activeDecals = new List<GameObject>();
 		}
 

@@ -73,6 +73,8 @@ namespace GC.GlitchCoreProject
 			playerInput.Player.Fire1.performed += _ => tryFire1 = true;
 			playerInput.Player.Fire1.canceled += _ => tryFire1 = false;
 			playerInput.Player.Fire2.performed += Fire2;
+
+			fireTimer = fireDelay * 0.75f;
 		}
 
 		private void OnDisable()

@@ -5,8 +5,20 @@ using UnityEngine.AI;
 
 namespace GC.GlitchCoreProject
 {
-    public class EnemyController : MonoBehaviour
+    public class BoxEnemyController : MonoBehaviour, IHealth
     {
+        public float maxHealth
+		{
+            get;
+            set;
+		}
+
+        public float currentHealth
+		{
+            get;
+            set;
+		}
+
         public GameObject pulseAttack;
         public Transform spawnPoint;
         public float moveSpeed;
@@ -18,13 +30,13 @@ namespace GC.GlitchCoreProject
         private NavMeshAgent navAgent;
         private Animator animator;
 
-        void Start()
+        void Awake()
         {
-            canAttack = true;
+            canAttack = false;
+            StartCoroutine(AttackDelay());
             navAgent = GetComponent<NavMeshAgent>();
             player = GameObject.FindObjectOfType<PlayerController>();
             animator = GetComponentInChildren<Animator>();
-            navAgent.speed = moveSpeed;
         }
 
         void FixedUpdate()
@@ -44,7 +56,6 @@ namespace GC.GlitchCoreProject
 
             if (navAgent.remainingDistance < 2 && canAttack)
 			{
-                Debug.Log("attack");
                 Attack();
 			}
         }
@@ -63,19 +74,25 @@ namespace GC.GlitchCoreProject
             StartCoroutine(AttackDelay());
 		}
 
+        public void Damage(int amount)
+		{
+            currentHealth = -amount;
+            if (currentHealth <= 0)
+			{
+                Die();
+			}
+		}
+
+        public void Die()
+		{
+            Destroy(this.gameObject);
+		}
+
         IEnumerator AttackDelay()
 		{
             yield return new WaitForSeconds(1.25f);
             navAgent.speed = moveSpeed;
             canAttack = true;
 		}
-
-        public void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.layer == 7)
-            {
-                Destroy (gameObject);
-            }
-        }
     }
 }

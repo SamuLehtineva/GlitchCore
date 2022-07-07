@@ -12,7 +12,7 @@ namespace GC.GlitchCoreProject
             set;
 		}
 
-        float currenthealth
+        float currentHealth
 		{
             get;
             set;
