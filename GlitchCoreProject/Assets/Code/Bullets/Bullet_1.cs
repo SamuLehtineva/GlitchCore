@@ -28,7 +28,7 @@ namespace GC.GlitchCoreProject
         void CheckHit()
 		{
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 0.15f, ~layerMask))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 0.2f, ~layerMask))
 			{
                 Instantiate(impact, transform.position, transform.rotation);
                 EnemyStats stats = hit.collider.gameObject.GetComponent<EnemyStats>();
