@@ -29,11 +29,6 @@ namespace GC.GlitchCoreProject
             ReadInput();
             ScrollThroughGuns();
             ChangeGun(currentGun);
-            if (scrollInput != 0f)
-			{
-                Debug.Log(scrollInput);
-            }
-            
         }
 
         void ReadInput()

@@ -40,7 +40,6 @@ namespace GC.GlitchCoreProject
 
         private void OnEnable()
         {
-            Debug.Log("OnEnable");
             playerInput = inputManager.playerInput;
 
             playerInput.Player.Fire1.Enable();

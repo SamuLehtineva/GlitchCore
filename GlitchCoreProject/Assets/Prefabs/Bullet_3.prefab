@@ -111,4 +111,5 @@ MonoBehaviour:
   speed: 30
   lifeTime: 5
   explosionRadius: 4
+  explosionForce: 2000
   impact: {fileID: 4909011767388003483, guid: 1ef26c9d139555c4ba908f450a0d4b3d, type: 3}
