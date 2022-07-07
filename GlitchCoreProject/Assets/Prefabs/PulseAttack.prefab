@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 8108880722247851349}
   - component: {fileID: 8108880722247851348}
   - component: {fileID: 8108880722247851339}
+  - component: {fileID: 5906930120572947005}
   m_Layer: 11
   m_Name: PulseAttack
   m_TagString: Untagged
@@ -375,3 +376,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5906930120572947005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108880722247851350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010375475290f0e439aae6a73a094ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 2

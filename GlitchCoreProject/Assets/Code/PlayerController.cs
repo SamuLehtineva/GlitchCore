@@ -238,7 +238,7 @@ namespace GC.GlitchCoreProject
 		{
 			if (other.gameObject.layer == 11)
 			{
-                Debug.Log("ouch");
+                
 			}
 		}
 
