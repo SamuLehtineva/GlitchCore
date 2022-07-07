@@ -45,10 +45,10 @@ namespace GC.GlitchCoreProject
 
             foreach (Collider col in objectsInRange)
 			{
-                Rigidbody rigid = col.GetComponent<Rigidbody>();
-                if (rigid != null)
+                EnemyStats stats = col.GetComponent<EnemyStats>();
+                if (stats != null)
 				{
-                    Debug.Log(rigid);
+                    stats.Damage(5);
 				}
 			}
 		}

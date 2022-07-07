@@ -21,7 +21,7 @@ namespace GC.GlitchCoreProject
 
             if (timer > lifeTime)
 			{
-                Destroy(this.gameObject);
+                Destroy(gameObject);
 			}
         }
 
@@ -31,8 +31,16 @@ namespace GC.GlitchCoreProject
             if (Physics.Raycast(transform.position, transform.forward, out hit, 0.15f, ~layerMask))
 			{
                 Instantiate(impact, transform.position, transform.rotation);
-                DecalManager.instance.CreateDecal(hit, 0);
-                Destroy(this.gameObject);
+                EnemyStats stats = hit.collider.gameObject.GetComponent<EnemyStats>();
+                if (stats != null)
+				{
+                    stats.Damage(2);
+				}
+                else if (hit.collider.gameObject.layer == 6)
+				{
+                    DecalManager.instance.CreateDecal(hit, 0);
+				}
+                Destroy(gameObject);
             }
 		}
 	}

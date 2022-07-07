@@ -5,20 +5,8 @@ using UnityEngine.AI;
 
 namespace GC.GlitchCoreProject
 {
-    public class BoxEnemyController : MonoBehaviour, IHealth
+    public class BoxEnemyController : MonoBehaviour
     {
-        public float maxHealth
-		{
-            get;
-            set;
-		}
-
-        public float currentHealth
-		{
-            get;
-            set;
-		}
-
         public GameObject pulseAttack;
         public Transform spawnPoint;
         public float moveSpeed;
@@ -54,7 +42,7 @@ namespace GC.GlitchCoreProject
 
             animator.SetBool("isMoving", isMoving);
 
-            if (navAgent.remainingDistance < 2 && canAttack)
+            if (navAgent.remainingDistance < attackDistance && canAttack)
 			{
                 Attack();
 			}
@@ -72,20 +60,6 @@ namespace GC.GlitchCoreProject
             navAgent.speed = 0;
             Instantiate(pulseAttack, spawnPoint.position, transform.rotation, transform);
             StartCoroutine(AttackDelay());
-		}
-
-        public void Damage(int amount)
-		{
-            currentHealth = -amount;
-            if (currentHealth <= 0)
-			{
-                Die();
-			}
-		}
-
-        public void Die()
-		{
-            Destroy(this.gameObject);
 		}
 
         IEnumerator AttackDelay()
