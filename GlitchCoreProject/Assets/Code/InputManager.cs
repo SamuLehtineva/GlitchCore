@@ -16,7 +16,6 @@ namespace GC.GlitchCoreProject
             playerInput = new PlayerInput();
             playerActions = playerInput.Player;
             hudActions = playerInput.HUD;
-            Debug.Log("awake");
 		}
 
 		private void OnEnable()

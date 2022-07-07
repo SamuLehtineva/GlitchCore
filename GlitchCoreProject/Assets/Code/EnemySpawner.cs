@@ -6,6 +6,16 @@ namespace GC.GlitchCoreProject
 {
     public class EnemySpawner : MonoBehaviour
     {
+        [System.Serializable]
+        public class Wave
+        {
+            public GameObject[] enemies;
+
+            public float spawnTime;
+
+            public float enemyNum;
+        }
+
         public enum State
         {
             WaitingForSpawn,
@@ -13,20 +23,29 @@ namespace GC.GlitchCoreProject
         }
 
         [SerializeField]
-        private float spawnTime;
+        private Wave[] waves;
+
+        private Wave currentWave;
 
         [SerializeField]
-        private GameObject enemy;
+        private Transform[] spawnPoints;
 
         private float timer;
 
-        private State state = State.WaitingForSpawn;
-
         private GameObject spawnedEnemy;
+
+        int randomEnemy;
+
+        int randomSpawnPoint;
+
+        private int round = 0;
+
+        private State state = State.WaitingForSpawn;
 
         void Start()
         {
-            timer = spawnTime;
+            currentWave = waves[round];
+            timer = currentWave.spawnTime;
         }
 
         void Update()
@@ -40,43 +59,49 @@ namespace GC.GlitchCoreProject
                         if (timer <= 0)
                         {
                             Spawn();
+                            NextWave();
                             ChangeState();
-                            Debug.Log("not Destroyed");
+                            Debug.Log (round);
                         }
                     }
 
                     break;
-
                 case State.WaitingForDestroy:
                     if (spawnedEnemy == null)
                     {
                         ChangeState();
                     }
                     break;
-                    
+            }
+        }
+
+        private void Spawn()
+        {
+            for (int i = 0; i < currentWave.enemyNum; i++)
+            {
+                randomEnemy = Random.Range(0, currentWave.enemies.Length);
+                randomSpawnPoint = Random.Range(0, spawnPoints.Length);
+
+                spawnedEnemy = Instantiate(currentWave.enemies[randomEnemy], spawnPoints[randomSpawnPoint].position, spawnPoints[randomSpawnPoint].rotation);
+            }
+        }
+
+        private void NextWave()
+        {
+            if (round + 1 <= 3)
+            {
+                round++;
+                currentWave = waves[round];
             }
         }
 
         private void ChangeState()
         {
-            state =
-                state == State.WaitingForDestroy
+            state = state == State.WaitingForDestroy
                     ? State.WaitingForSpawn
                     : State.WaitingForDestroy;
 
-            timer = spawnTime;
-        }
-
-        private void DoDestroy()
-        {
-            Destroy (spawnedEnemy);
-            spawnedEnemy = null;
-        }
-
-        private void Spawn()
-        {
-            spawnedEnemy = Instantiate(enemy, transform.position, transform.rotation);
-
+            timer = currentWave.spawnTime;
         }
     }
 }

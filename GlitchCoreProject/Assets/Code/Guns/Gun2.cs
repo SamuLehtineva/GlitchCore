@@ -31,9 +31,17 @@ namespace GC.GlitchCoreProject
                 Debug.DrawLine(transform.position, orientation.forward * 50, Color.black, 5f);
                 if (Physics.Raycast(transform.position, orientation.forward, out hit, 50f))
 				{
-                    Instantiate(impactVfx, hit.point, transform.rotation);
-                    DecalManager.instance.CreateDecal(hit, 0);
-                    Debug.Log(hit.rigidbody);
+                    EffectManager.instance.SpawnEffect(0, hit.point, transform.rotation);
+                    EnemyStats stats = hit.transform.gameObject.GetComponent<EnemyStats>();
+                    if (stats != null)
+					{
+                        stats.Damage(4);
+					}
+                    if (hit.transform.gameObject.layer == 6)
+					{
+                        DecalManager.instance.CreateDecal(hit, 0);
+                        
+                    }
 				}
                 fireTimer = 0f;
 			}
