@@ -7,6 +7,7 @@ namespace GC.GlitchCoreProject
     public class PlayerStats : MonoBehaviour
     {
         public int maxHealth = 100;
+        public float currentHealth;
         public int money = 50;
 
         [Header("Modifiers")]
@@ -15,5 +16,19 @@ namespace GC.GlitchCoreProject
         public float fireDelayMod = 1;
         public float jumpHeightMod = 1;
         public float airControlMod = 1;
+
+        public void Damage(int amount)
+		{
+            currentHealth -= amount;
+            if (currentHealth <= 0)
+			{
+                Die();
+			}
+		}
+
+        public void Die()
+		{
+            SceneChanger.LoadLevel("Menu");
+		}
     }
 }

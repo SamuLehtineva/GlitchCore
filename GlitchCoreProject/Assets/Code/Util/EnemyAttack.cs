@@ -27,11 +27,20 @@ namespace GC.GlitchCoreProject
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if (other.gameObject.tag == "Player" && !hasHit)
+            PlayerStats player = other.GetComponent<PlayerStats>();
+			if (player != null && !hasHit)
 			{
                 Debug.Log("hit!!");
                 hasHit = true;
+                player.Damage(15);
+                StartCoroutine(DamageDelay());
 			}
+		}
+
+        IEnumerator DamageDelay()
+		{
+            yield return new WaitForSeconds(1);
+            hasHit = false;
 		}
 	}
 }
