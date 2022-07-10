@@ -17,7 +17,12 @@ namespace GC.GlitchCoreProject
         public float jumpHeightMod = 1;
         public float airControlMod = 1;
 
-        public void Damage(int amount)
+		private void Awake()
+		{
+            currentHealth = maxHealth;
+		}
+
+		public void Damage(int amount)
 		{
             currentHealth -= amount;
             if (currentHealth <= 0)

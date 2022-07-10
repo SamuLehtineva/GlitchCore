@@ -919,6 +919,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1736646770, guid: dbb16e894b0d7bd4289e9fd962eb437e, type: 3}
   m_PrefabInstance: {fileID: 666466030}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1781701945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2013542535637914483, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+  m_PrefabInstance: {fileID: 771005921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1781701953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781701945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69acf74926889e42865602d2f7fbbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  money: 50
+  maxHealthMod: 1
+  moveSpeedMod: 1
+  fireDelayMod: 1
+  jumpHeightMod: 1
+  airControlMod: 1
 --- !u!4 &1814571637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1814571637, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
