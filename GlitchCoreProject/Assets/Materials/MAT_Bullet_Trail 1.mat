@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MAT_Bullet_Trail 1
+  m_Shader: {fileID: -6465566751694194690, guid: 396fe7584cdbaa048b2e798b465d05fa, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_d9360f8c5d314a149cda248298ffa7f2:
+        m_Texture: {fileID: 2800000, guid: 2c694598edcb3724a85a1e16508b096a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_8c1ff08fe5d347b0a5103f6ace04809e: 35
+    m_Colors:
+    - Color_1440c187273a46cd9765ea62a48318a3: {r: 0, g: 0.47058824, b: 2, a: 0}
+    - Color_99589b90647b45679cae28bc7d4a7681: {r: 0.10588237, g: 0.8862745, b: 0.821983, a: 0}
+    - Vector2_00be7adb7ace4623ad1ae1e315882c13: {r: -0.5, g: 0, b: 0, a: 0}
+    - Vector2_78782e461fa94e7f9533e58a1db4ff05: {r: 0.1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
