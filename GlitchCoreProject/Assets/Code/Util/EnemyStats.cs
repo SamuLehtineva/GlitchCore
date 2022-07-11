@@ -44,7 +44,7 @@ namespace GC.GlitchCoreProject
 
             foreach (Material mat in render.materials)
 			{
-                mat.shader = Shader.Find("Shader Graphs/Diffuse");
+                mat.shader = Shader.Find("Shader Graphs/Enemy_Dissolve");
 			}
             Destroy(gameObject, 5);
         }
