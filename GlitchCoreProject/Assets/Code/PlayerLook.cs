@@ -71,7 +71,8 @@ namespace GC.GlitchCoreProject
 		{
             RaycastHit hit;
             int layerMask = (1 << 3) | (1 << 7);
-            Physics.Raycast(transform.position, transform.forward, out hit, 100f, ~layerMask);
+            Physics.Raycast(transform.position, transform.forward, out hit, 150f, ~layerMask);
+            Debug.DrawRay(transform.position, transform.forward, Color.red, 10f);
             return hit.point;
 		}
     }

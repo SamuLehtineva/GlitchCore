@@ -32,8 +32,12 @@ namespace GC.GlitchCoreProject
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, 0.15f, ~layerMask))
             {
+                if (hit.transform.gameObject.layer == 6)
+				{
+                    DecalManager.instance.CreateDecal(hit, 0);
+                }
+
                 Instantiate(impact, transform.position, transform.rotation);
-                DecalManager.instance.CreateDecal(hit, 0);
                 Explode();
                 Destroy(this.gameObject);
             }

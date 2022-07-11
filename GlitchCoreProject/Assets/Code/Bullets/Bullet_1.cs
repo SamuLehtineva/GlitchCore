@@ -43,5 +43,23 @@ namespace GC.GlitchCoreProject
                 Destroy(gameObject);
             }
 		}
+
+		private void OnCollisionEnter(Collision collision)
+		{
+			if (collision.transform.gameObject.layer != 7 && collision.transform.gameObject.layer != 3)
+			{
+                Instantiate(impact, transform.position, transform.rotation);
+                EnemyStats stats = collision.collider.gameObject.GetComponent<EnemyStats>();
+                if (stats != null)
+                {
+                    stats.Damage(2);
+                }
+                else if (collision.collider.gameObject.layer == 6)
+                {
+                    
+                }
+                Destroy(gameObject);
+            }
+		}
 	}
 }
