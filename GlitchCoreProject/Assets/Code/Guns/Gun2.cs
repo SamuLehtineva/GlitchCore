@@ -36,6 +36,7 @@ namespace GC.GlitchCoreProject
                     if (stats != null)
 					{
                         stats.Damage(4);
+                        hit.rigidbody.AddForce(transform.forward * 600f);
 					}
                     if (hit.transform.gameObject.layer == 6)
 					{

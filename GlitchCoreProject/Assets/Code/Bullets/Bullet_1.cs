@@ -8,7 +8,6 @@ namespace GC.GlitchCoreProject
     {
         public float speed;
         public float lifeTime;
-        public GameObject impact;
 
         float timer = 0.0f;
         int layerMask = (1 << 7) | (1 << 3);
@@ -30,11 +29,12 @@ namespace GC.GlitchCoreProject
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, 0.2f, ~layerMask))
 			{
-                Instantiate(impact, transform.position, transform.rotation);
+                EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
                 EnemyStats stats = hit.collider.gameObject.GetComponent<EnemyStats>();
                 if (stats != null)
 				{
                     stats.Damage(2);
+                    hit.rigidbody.AddForce(transform.forward * 500f);
 				}
                 else if (hit.collider.gameObject.layer == 6)
 				{
@@ -48,15 +48,11 @@ namespace GC.GlitchCoreProject
 		{
 			if (collision.transform.gameObject.layer != 7 && collision.transform.gameObject.layer != 3)
 			{
-                Instantiate(impact, transform.position, transform.rotation);
+                EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
                 EnemyStats stats = collision.collider.gameObject.GetComponent<EnemyStats>();
                 if (stats != null)
                 {
                     stats.Damage(2);
-                }
-                else if (collision.collider.gameObject.layer == 6)
-                {
-                    
                 }
                 Destroy(gameObject);
             }

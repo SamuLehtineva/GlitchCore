@@ -53,6 +53,7 @@ namespace GC.GlitchCoreProject
                 if (stats != null)
 				{
                     stats.Damage(5);
+                    col.attachedRigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
 				}
 			}
 		}
