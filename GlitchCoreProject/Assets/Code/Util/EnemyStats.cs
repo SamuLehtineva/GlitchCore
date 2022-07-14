@@ -15,18 +15,15 @@ namespace GC.GlitchCoreProject
         private float eventTime = 0.0f;
         private SkinnedMeshRenderer render;
         private Animator anim;
+        private AudioSource audi;
 
 		private void Awake()
 		{
             isDead = false;
+            audi = GetComponent<AudioSource>();
+            audi.PlayDelayed(Random.Range(0.1f, 2.5f));
             anim = GetComponentInChildren<Animator>();
             render = GetComponentInChildren<SkinnedMeshRenderer>();
-            /*for (int i = 0; i < render.materials.Length; i++)
-			{
-                render.materials[i] = new Material(render.materials[i]);
-                render.materials[i].SetFloat("active", 0.9f);
-            }*/
-            //Debug.Log(render.materials[1]);
             currentHealth = maxHealth;
 		}
 
@@ -59,7 +56,7 @@ namespace GC.GlitchCoreProject
         {
             isDead = true;
             eventTime = Time.time;
-
+            audi.Stop();
             GetComponent<Rigidbody>().isKinematic = false;
             GetComponent<BoxEnemyController>().enabled = false;
             GetComponent<NavMeshAgent>().enabled = false;

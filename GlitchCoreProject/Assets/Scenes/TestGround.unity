@@ -32940,6 +32940,10 @@ PrefabInstance:
       propertyPath: orientation
       value: 
       objectReference: {fileID: 1982689932}
+    - target: {fileID: 1781701953, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914483, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_Name
       value: Player
