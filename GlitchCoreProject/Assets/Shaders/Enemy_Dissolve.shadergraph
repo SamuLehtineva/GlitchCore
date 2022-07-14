@@ -502,7 +502,7 @@
     "m_Guid": {
         "m_GuidSerialized": "387cbe0c-079a-41b8-b3ae-116da3defd52"
     },
-    "m_Name": "Shader Activation",
+    "m_Name": "active",
     "m_DefaultReferenceName": "Vector1_155677f7378946a085f0411c1f32a2b5",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
@@ -571,7 +571,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "1cf9b5ac936b45e09f0f55cf29deb791",
     "m_Id": 0,
-    "m_DisplayName": "Shader Activation",
+    "m_DisplayName": "active",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1277,7 +1277,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"0a71c69b8d357484797dabc4c2705157\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"c5c7c3529df95ff448e71a3e663a7d4c\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_DefaultType": 0

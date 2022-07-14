@@ -9,44 +9,63 @@ namespace GC.GlitchCoreProject
     {
         public int maxHealth;
         public int currentHealth;
+        public float deathDuration = 1.5f;
 
+        private bool isDead;
+        private float eventTime = 0.0f;
         private SkinnedMeshRenderer render;
         private Animator anim;
 
 		private void Awake()
 		{
+            isDead = false;
             anim = GetComponentInChildren<Animator>();
             render = GetComponentInChildren<SkinnedMeshRenderer>();
-            for (int i = 0; i < render.materials.Length; i++)
+            /*for (int i = 0; i < render.materials.Length; i++)
 			{
                 render.materials[i] = new Material(render.materials[i]);
-			}
-            Debug.Log(render.materials[0].shader);
+                render.materials[i].SetFloat("active", 0.9f);
+            }*/
+            //Debug.Log(render.materials[1]);
             currentHealth = maxHealth;
 		}
 
-        public void Damage(int amount)
-        {
-            currentHealth -= amount;
-            if (currentHealth <= 0)
-            {
-                Die();
+		private void Update()
+		{
+            if (isDead)
+			{
+                float ratio = (Time.time - eventTime) / deathDuration;
+                foreach (Material mat in render.materials)
+                {
+                    mat.SetFloat("Vector1_155677f7378946a085f0411c1f32a2b5", Mathf.Lerp(0, 1, ratio));
+                }
             }
-            EffectManager.instance.SpawnEffect(1, transform.position, transform.rotation);
+        }
+
+		public void Damage(int amount)
+        {
+            if (!isDead)
+			{
+                currentHealth -= amount;
+                if (currentHealth <= 0)
+                {
+                    Die();
+                }
+                EffectManager.instance.SpawnEffect(1, transform.position, transform.rotation);
+            }
         }
 
         public void Die()
         {
+            isDead = true;
+            eventTime = Time.time;
+
             GetComponent<Rigidbody>().isKinematic = false;
             GetComponent<BoxEnemyController>().enabled = false;
             GetComponent<NavMeshAgent>().enabled = false;
             anim.enabled = false;
-
-            foreach (Material mat in render.materials)
-			{
-                mat.shader = Shader.Find("Shader Graphs/Enemy_Dissolve");
-			}
-            Destroy(gameObject, 5);
+            
+            Destroy(gameObject, deathDuration);
         }
     }
 }
