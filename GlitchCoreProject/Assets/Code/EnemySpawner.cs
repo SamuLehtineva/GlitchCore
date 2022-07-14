@@ -13,6 +13,8 @@ namespace GC.GlitchCoreProject
 
             public float spawnTime;
 
+            public float nextWaveTime;
+
             public float enemyNum;
         }
 
@@ -30,7 +32,9 @@ namespace GC.GlitchCoreProject
         [SerializeField]
         private Transform[] spawnPoints;
 
-        private float timer;
+        private float spawnTimer;
+
+        private float destroyTimer;
 
         private GameObject spawnedEnemy;
 
@@ -40,12 +44,16 @@ namespace GC.GlitchCoreProject
 
         private int round = 0;
 
+        private bool isSpawning;
+
         private State state = State.WaitingForSpawn;
 
         void Start()
         {
             currentWave = waves[round];
-            timer = currentWave.spawnTime;
+            spawnTimer = currentWave.spawnTime;
+            destroyTimer = currentWave.nextWaveTime;
+            isSpawning = true;
         }
 
         void Update()
@@ -53,23 +61,40 @@ namespace GC.GlitchCoreProject
             switch (state)
             {
                 case State.WaitingForSpawn:
-                    if (timer > 0)
+                
+                    if (isSpawning)
                     {
-                        timer -= Time.deltaTime;
-                        if (timer <= 0)
+                        if (spawnTimer > 0)
                         {
-                            Spawn();
-                            NextWave();
-                            ChangeState();
-                            Debug.Log (round);
+                            spawnTimer -= Time.deltaTime;
+                            if (spawnTimer <= 0)
+                            {
+                                Spawn();
+                                NextWave();
+                                ChangeState();
+                                Debug.Log (round);
+                            }
+                        }
+                    }
+                    else if (!isSpawning)
+                    {
+                        if (!IsAlive())
+                        {
+                            // waves stop
                         }
                     }
 
                     break;
+
                 case State.WaitingForDestroy:
-                    if (spawnedEnemy == null)
+
+                    if (destroyTimer > 0)
                     {
-                        ChangeState();
+                        destroyTimer -= Time.deltaTime;
+                        if (destroyTimer <= 0 || !IsAlive())
+                        {
+                            ChangeState();
+                        }
                     }
                     break;
             }
@@ -82,17 +107,31 @@ namespace GC.GlitchCoreProject
                 randomEnemy = Random.Range(0, currentWave.enemies.Length);
                 randomSpawnPoint = Random.Range(0, spawnPoints.Length);
 
-                spawnedEnemy = Instantiate(currentWave.enemies[randomEnemy], spawnPoints[randomSpawnPoint].position, spawnPoints[randomSpawnPoint].rotation);
+                Instantiate(currentWave.enemies[randomEnemy], spawnPoints[randomSpawnPoint].position, spawnPoints[randomSpawnPoint].rotation);
             }
         }
 
         private void NextWave()
         {
-            if (round + 1 <= 3)
+            if (round + 1 < waves.Length)
             {
                 round++;
                 currentWave = waves[round];
             }
+            else
+            {
+                isSpawning = false;
+            }
+        }
+
+        private bool IsAlive()
+        {
+            if (GameObject.FindGameObjectWithTag("Enemy") == null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void ChangeState()
@@ -101,7 +140,8 @@ namespace GC.GlitchCoreProject
                     ? State.WaitingForSpawn
                     : State.WaitingForDestroy;
 
-            timer = currentWave.spawnTime;
+            spawnTimer = currentWave.spawnTime;
+            destroyTimer = currentWave.nextWaveTime;
         }
     }
 }
