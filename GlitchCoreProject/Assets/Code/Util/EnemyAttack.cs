@@ -32,7 +32,7 @@ namespace GC.GlitchCoreProject
 			{
                 Debug.Log("hit!!");
                 hasHit = true;
-                player.Damage(15);
+                player.Damage(25);
                 StartCoroutine(DamageDelay());
 			}
 		}
