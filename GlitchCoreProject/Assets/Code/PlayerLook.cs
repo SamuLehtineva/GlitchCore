@@ -62,9 +62,6 @@ namespace GC.GlitchCoreProject
 
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             player.rotation = Quaternion.Euler(0, yRotation, 0);
-
-            /*mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-            transform.rotation = Quaternion.Euler(0, yRotation, 0);*/
         }
 
         public Vector3 GetTarget()
