@@ -13,7 +13,7 @@ namespace GC.GlitchCoreProject
         public GameObject impact;
 
         float timer = 0.0f;
-        int layerMask = (1 << 7) | (1 << 3);
+        int layerMask = (1 << 7) | (1 << 3) | (1 << 12);
 
         void Update()
         {

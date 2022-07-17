@@ -17,6 +17,7 @@ namespace GC.GlitchCoreProject
         private PlayerController player;
         private NavMeshAgent navAgent;
         private Animator animator;
+        private GameObject lastAttack;
 
         void Awake()
         {
@@ -58,9 +59,14 @@ namespace GC.GlitchCoreProject
             canAttack = false;
             animator.SetTrigger("Attack");
             navAgent.speed = 0;
-            Instantiate(pulseAttack, spawnPoint.position, transform.rotation, transform);
+            lastAttack = Instantiate(pulseAttack, spawnPoint.position, transform.rotation, transform);
             StartCoroutine(AttackDelay());
 		}
+
+        public void Die()
+        {
+            Destroy(lastAttack);
+        }
 
         IEnumerator AttackDelay()
 		{

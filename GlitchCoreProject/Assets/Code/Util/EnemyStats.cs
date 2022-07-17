@@ -57,12 +57,23 @@ namespace GC.GlitchCoreProject
             isDead = true;
             eventTime = Time.time;
             audi.Stop();
-            GetComponent<Rigidbody>().isKinematic = false;
+            RagDoll();
+            GetComponent<BoxEnemyController>().Die();
             GetComponent<BoxEnemyController>().enabled = false;
             GetComponent<NavMeshAgent>().enabled = false;
             anim.enabled = false;
             
             Destroy(gameObject, deathDuration);
+        }
+
+        public void RagDoll()
+        {
+            GetComponent<Rigidbody>().isKinematic = false;
+            gameObject.layer = 12;
+            foreach (Transform child in transform)
+            {
+                child.gameObject.layer = 12;
+            }
         }
     }
 }
