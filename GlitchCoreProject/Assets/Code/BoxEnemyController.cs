@@ -18,6 +18,7 @@ namespace GC.GlitchCoreProject
         private NavMeshAgent navAgent;
         private Animator animator;
         private GameObject lastAttack;
+        private EnemyStats stats;
 
         void Awake()
         {
@@ -26,6 +27,7 @@ namespace GC.GlitchCoreProject
             navAgent = GetComponent<NavMeshAgent>();
             player = GameObject.FindObjectOfType<PlayerController>();
             animator = GetComponentInChildren<Animator>();
+            stats = GetComponent<EnemyStats>();
         }
 
         void FixedUpdate()
@@ -47,6 +49,11 @@ namespace GC.GlitchCoreProject
 			{
                 Attack();
 			}
+
+            if (stats.currentHealth <= 0)
+            {
+                Die();
+            } 
         }
 
         private void Seek()
@@ -66,6 +73,8 @@ namespace GC.GlitchCoreProject
         public void Die()
         {
             Destroy(lastAttack);
+            GetComponent<NavMeshAgent>().enabled = false;
+            Destroy(this);
         }
 
         IEnumerator AttackDelay()

@@ -58,9 +58,6 @@ namespace GC.GlitchCoreProject
             eventTime = Time.time;
             audi.Stop();
             RagDoll();
-            GetComponent<BoxEnemyController>().Die();
-            GetComponent<BoxEnemyController>().enabled = false;
-            GetComponent<NavMeshAgent>().enabled = false;
             anim.enabled = false;
             
             Destroy(gameObject, deathDuration);

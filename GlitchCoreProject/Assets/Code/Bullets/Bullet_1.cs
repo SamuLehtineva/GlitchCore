@@ -46,7 +46,7 @@ namespace GC.GlitchCoreProject
 
 		private void OnCollisionEnter(Collision collision)
 		{
-			if (collision.transform.gameObject.layer != 7 && collision.transform.gameObject.layer != 3)
+			if (collision.transform.gameObject.layer != 7 && collision.transform.gameObject.layer != 3 && collision.transform.gameObject.layer != 12)
 			{
                 EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
                 EnemyStats stats = collision.collider.gameObject.GetComponent<EnemyStats>();
