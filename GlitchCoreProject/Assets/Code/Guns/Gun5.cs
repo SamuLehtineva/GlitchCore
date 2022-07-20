@@ -27,18 +27,13 @@ namespace GC.GlitchCoreProject
         {
             if (fireTimer >= fireDelay)
             {
-                if (Physics.SphereCast(transform.position, 1.5f, orientation.forward, out hit, 5f))
+                if (Physics.SphereCast(transform.position, 1f, orientation.forward, out hit, 5f))
                 {
                     EnemyStats stats = hit.transform.gameObject.GetComponent<EnemyStats>();
                     if (stats != null)
                     {
                         stats.Damage(5);
                         hit.rigidbody.AddForce(transform.forward * 800f);
-                    }
-
-                    if (hit.transform.gameObject.layer == 6)
-                    {
-                        DecalManager.instance.CreateDecal(hit, 0);
                     }
                 }
                 fireTimer = 0f;
