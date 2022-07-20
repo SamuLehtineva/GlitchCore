@@ -9,6 +9,7 @@ namespace GC.GlitchCoreProject
         public GameObject[] guns;
         public int currentGun = 0;
         public InputManager inputManager;
+        public List<int> usableGuns;
 
         private PlayerInput playerInput;
         private float scrollInput;
@@ -16,6 +17,9 @@ namespace GC.GlitchCoreProject
 
         void Start()
         {
+            usableGuns = new List<int>();
+            usableGuns.Add(0);
+            usableGuns.Add(2);
             playerInput = inputManager.playerInput;
             playerInput.Player.NextWeapon.Enable();
 
@@ -45,6 +49,15 @@ namespace GC.GlitchCoreProject
 				{
                     currentGun = 0;
 				}
+
+                while (!usableGuns.Contains(currentGun))
+                {
+                    currentGun++;
+                    if (currentGun >= guns.Length)
+				    {
+                        currentGun = 0;
+				    }
+                }                
 			}
             else if (scrollInput < 0)
 			{
@@ -53,6 +66,15 @@ namespace GC.GlitchCoreProject
 				{
                     currentGun = guns.Length - 1;
 				}
+
+                while (!usableGuns.Contains(currentGun))
+                {
+                    currentGun--;
+                    if (currentGun < 0)
+				    {
+                        currentGun = guns.Length - 1;
+				    }
+                }
 			}
 		}
 
