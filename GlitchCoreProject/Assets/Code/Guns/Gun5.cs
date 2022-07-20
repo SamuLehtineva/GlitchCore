@@ -10,7 +10,6 @@ namespace GC.GlitchCoreProject
         public Transform orientation;
         public float fireDelay;
         public InputManager inputManager;
-        public GameObject attackBox;
 
         private PlayerInput playerInput;
         private float fireTimer = 0.0f;
