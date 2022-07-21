@@ -25,6 +25,8 @@ namespace GC.GlitchCoreProject
             usableGuns = new List<int>();
             usableGuns.Add(0);
             usableGuns.Add(1);
+            usableGuns.Add(2);
+            usableGuns.Add(3);
             playerInput = inputManager.playerInput;
             playerInput.Player.NextWeapon.Enable();
 
