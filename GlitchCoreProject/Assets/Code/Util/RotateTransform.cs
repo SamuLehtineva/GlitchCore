@@ -8,12 +8,6 @@ namespace GC.GlitchCoreProject
     {
         public float speed;
 
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
         void Update()
         {
             transform.Rotate(0f, speed * Time.deltaTime, 0f, Space.Self);
