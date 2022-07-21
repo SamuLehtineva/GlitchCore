@@ -6,6 +6,7 @@ namespace GC.GlitchCoreProject
 {
     public class GunManager : MonoBehaviour
     {
+        public static GunManager instance;
         public GameObject[] guns;
         public int currentGun = 0;
         public InputManager inputManager;
@@ -15,11 +16,15 @@ namespace GC.GlitchCoreProject
         private float scrollInput;
         private GameObject currentGunObj;
 
+        void Awake()
+        {
+            instance = this;
+        }
         void Start()
         {
             usableGuns = new List<int>();
             usableGuns.Add(0);
-            usableGuns.Add(2);
+            usableGuns.Add(1);
             playerInput = inputManager.playerInput;
             playerInput.Player.NextWeapon.Enable();
 

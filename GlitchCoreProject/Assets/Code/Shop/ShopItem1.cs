@@ -4,20 +4,23 @@ using UnityEngine;
 
 namespace GC.GlitchCoreProject
 {
-    public interface IShopItem
+    public class ShopItem1 : MonoBehaviour, IShopItem
     {
-        string itemName
+        public string itemName
         {
             get;
             set;
         }
 
-        int price
+        public int price
         {
             get;
             set;
         }
-        
-        void Buy();
+
+        public void Buy()
+        {
+            GunManager.instance.usableGuns.Add(2);
+        }
     }
 }
