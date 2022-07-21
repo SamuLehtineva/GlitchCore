@@ -28,7 +28,6 @@ namespace GC.GlitchCoreProject
             {
                 if (hit.transform.gameObject.layer == 13)
                 {
-                    Debug.Log("hirt+svbsd");
                     IShopItem item = hit.transform.gameObject.GetComponent<IShopItem>();
                     if (item != null)
                     {
