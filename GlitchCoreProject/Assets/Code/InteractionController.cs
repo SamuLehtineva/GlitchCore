@@ -22,18 +22,18 @@ namespace GC.GlitchCoreProject
             playerInput.Player.Interact.performed += Interact;
         }
 
-        void FixedUpdate()
-        {
-            
-        }
-
         void Interact(InputAction.CallbackContext context)
         {
             if (Physics.Raycast(transform.position, orientation.forward, out hit, range))
             {
                 if (hit.transform.gameObject.layer == 13)
                 {
-                    Debug.Log("shop");
+                    Debug.Log("hirt+svbsd");
+                    IShopItem item = hit.transform.gameObject.GetComponent<IShopItem>();
+                    if (item != null)
+                    {
+                        item.Buy();
+                    }
                 }
             }
         }
