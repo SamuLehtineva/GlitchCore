@@ -10,11 +10,12 @@ namespace GC.GlitchCoreProject
         public Transform orientation;
 
         [Header("Movement")]
-        public float moveSpeed = 7f;
+        public float baseMoveSpeed = 7f;
         public float groundDrag;
         public float jumpSpeed = 8;
         public float jumpCooldown;
         public float airMultiplier;
+        float moveSpeed;
         bool canJump;
         bool canDoubleJump;
 
@@ -73,9 +74,15 @@ namespace GC.GlitchCoreProject
 
         void FixedUpdate()
         {
+            UpdateStats();
             MovePlayer();
             DashMove();
             DashCooldown();
+        }
+
+        void UpdateStats()
+        {
+            moveSpeed = baseMoveSpeed * PlayerStats.instance.moveSpeedMod;
         }
 
         void ReadInput()
@@ -114,8 +121,6 @@ namespace GC.GlitchCoreProject
 			{
                 rigid.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
             }
-
-            //rigid.useGravity = !OnSlope();
         }
 
         void Jump(InputAction.CallbackContext context)

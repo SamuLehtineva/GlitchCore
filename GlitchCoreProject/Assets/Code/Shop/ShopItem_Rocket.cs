@@ -4,14 +4,16 @@ using UnityEngine;
 
 namespace GC.GlitchCoreProject
 {
-    public class ShopItem1 : MonoBehaviour, IShopItem
+    public class ShopItem_Rocket : MonoBehaviour, IShopItem
     {
+        [field:SerializeField]
         public string itemName
         {
             get;
             set;
         }
 
+        [field:SerializeField]
         public int price
         {
             get;
