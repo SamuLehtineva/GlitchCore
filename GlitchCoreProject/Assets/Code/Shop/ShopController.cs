@@ -6,16 +6,16 @@ namespace GC.GlitchCoreProject
 {
     public class ShopController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public Transform itemPos1;
+        public Transform itemPos2;
+        public List<IShopItem> items;
 
-        // Update is called once per frame
-        void Update()
+        private IShopItem item1;
+        private IShopItem item2;
+
+        void Randomize()
         {
-        
+            item1 = items[(int)Random.Range(0, items.Count)];
         }
     }
 }
