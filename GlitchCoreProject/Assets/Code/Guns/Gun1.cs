@@ -9,10 +9,11 @@ namespace GC.GlitchCoreProject
     {
         public GameObject bullet;
 		public GameObject bullet2;
-		public float fireDelay = 6f;
+		public float baseFireDelay = 7f;
 		public PlayerLook playerLook;
 		public Transform spawnPos;
 
+		float fireDelay;
 		private float fireTimer = 0.0f;
 		private bool tryFire1;
 		PlayerInput playerInput;
@@ -36,6 +37,7 @@ namespace GC.GlitchCoreProject
 
 		private void FixedUpdate()
 		{
+			fireDelay = baseFireDelay / PlayerStats.instance.fireDelayMod;
 			if (fireTimer < fireDelay)
 			{
 				fireTimer += 1f;

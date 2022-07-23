@@ -8,15 +8,17 @@ namespace GC.GlitchCoreProject
     public class Gun5 : MonoBehaviour
     {
         public Transform orientation;
-        public float fireDelay;
+        public float baseFireDelay = 45f;
         public InputManager inputManager;
 
+        float fireDelay;
         private PlayerInput playerInput;
         private float fireTimer = 0.0f;
         private RaycastHit hit;
 
         void FixedUpdate()
 		{
+            fireDelay = baseFireDelay / PlayerStats.instance.fireDelayMod;
             if (fireTimer < fireDelay)
 			{
                 fireTimer += 1.0f;

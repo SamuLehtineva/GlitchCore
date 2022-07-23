@@ -8,16 +8,18 @@ namespace GC.GlitchCoreProject
     public class Gun3 : MonoBehaviour
     {
         public GameObject bullet;
-        public float fireDelay = 50f;
+        public float baseFireDelay = 50f;
         public PlayerLook playerLook;
         public Transform spawnPos;
         public InputManager inputManager;
 
+        float fireDelay;
         private float fireTimer = 0.0f;
         private PlayerInput playerInput;
 
 		void FixedUpdate()
 		{
+            fireDelay = baseFireDelay / PlayerStats.instance.fireDelayMod;
 			if (fireTimer < fireDelay)
 			{
                 fireTimer += 1.0f;
