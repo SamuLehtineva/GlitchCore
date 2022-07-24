@@ -1266,6 +1266,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPos1: {fileID: 2010693753}
   itemPos2: {fileID: 386322262}
+  items:
+  - {fileID: 7211646680454927170, guid: a1547d0ff5000b249979b93bed7b9881, type: 3}
+  - {fileID: 203782819029256821, guid: a91c3a99cb450cb45bc7620a3edfb5af, type: 3}
+  - {fileID: 6969339028633296557, guid: 02c0806bc41e3a647a28b9c75ee35625, type: 3}
 --- !u!1001 &930729734
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,16 +6,25 @@ namespace GC.GlitchCoreProject
 {
     public class ShopController : MonoBehaviour
     {
+        public static ShopController instance;
         public Transform itemPos1;
         public Transform itemPos2;
-        public List<IShopItem> items;
+        public List<GameObject> items;
 
-        private IShopItem item1;
-        private IShopItem item2;
+        private GameObject item1;
+        private GameObject item2;
 
-        void Randomize()
+        void Awake()
         {
-            item1 = items[(int)Random.Range(0, items.Count)];
+            instance = this;
+            Randomize();
+        }
+
+        public void Randomize()
+        {
+            item1 = items[(int)Random.Range(0, items.Count)].transform.gameObject;
+            Instantiate(item1, itemPos1.position, itemPos1.rotation);
+            items.Remove(item1);
         }
     }
 }
