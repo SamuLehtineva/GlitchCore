@@ -10,7 +10,6 @@ namespace GC.GlitchCoreProject
         public float lifeTime;
         public float explosionRadius;
         public float explosionForce;
-        public GameObject impact;
 
         float timer = 0.0f;
         int layerMask = (1 << 7) | (1 << 3) | (1 << 12);
@@ -37,7 +36,7 @@ namespace GC.GlitchCoreProject
                     DecalManager.instance.CreateDecal(hit, 0);
                 }
 
-                Instantiate(impact, transform.position, transform.rotation);
+                EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
                 Explode();
                 Destroy(this.gameObject);
             }

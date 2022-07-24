@@ -1,29 +1,8 @@
 fileFormatVersion: 2
-guid: 7e940b1563dc1f34181d3b5decf76bb8
+guid: 61da47c2415c2e349a3ed4b9d07e201f
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -2439892189410052365
-    second: Equip Pistol
-  - first:
-      74: -2978787767791185095
-    second: Shoot Pistol
-  - first:
-      74: -5141058933358832470
-    second: Unequip Pistol
-  - first:
-      74: -9068298130932468032
-    second: Pistol Hand Armature|Equip Pistol
-  - first:
-      74: 7837046738961837637
-    second: Pistol Hand Armature|Unequip Pistol
-  - first:
-      74: -4655624369489895638
-    second: Pistol|Unequip Pistol
-  - first:
-      74: 3988297188811921924
-    second: Pistol|Unequip Pistol.001
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
