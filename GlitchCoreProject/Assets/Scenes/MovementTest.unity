@@ -1959,6 +1959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireRate
       objectReference: {fileID: 0}
+    - target: {fileID: 203782819029256821, guid: a91c3a99cb450cb45bc7620a3edfb5af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91c3a99cb450cb45bc7620a3edfb5af, type: 3}
 --- !u!1001 &435475116515904137
@@ -2483,6 +2487,10 @@ PrefabInstance:
     - target: {fileID: 7211646680454927170, guid: a1547d0ff5000b249979b93bed7b9881, type: 3}
       propertyPath: m_Name
       value: Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211646680454927170, guid: a1547d0ff5000b249979b93bed7b9881, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7211646680454927173, guid: a1547d0ff5000b249979b93bed7b9881, type: 3}
       propertyPath: m_RootOrder
