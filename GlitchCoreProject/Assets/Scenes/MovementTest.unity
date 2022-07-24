@@ -1116,10 +1116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPos1: {fileID: 2010693753}
   itemPos2: {fileID: 386322262}
-  items:
-  - {fileID: 203782819029256821, guid: a91c3a99cb450cb45bc7620a3edfb5af, type: 3}
-  - {fileID: 7211646680454927170, guid: a1547d0ff5000b249979b93bed7b9881, type: 3}
-  - {fileID: 6969339028633296557, guid: 02c0806bc41e3a647a28b9c75ee35625, type: 3}
 --- !u!1001 &930729734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1814,6 +1810,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 921120303}
     m_Modifications:
+    - target: {fileID: 203782817989363972, guid: a91c3a99cb450cb45bc7620a3edfb5af, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99ba94afe3a64cd4eb45bbe847c31b39, type: 2}
     - target: {fileID: 203782819029256820, guid: a91c3a99cb450cb45bc7620a3edfb5af, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2317,6 +2317,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8346718031275336449, guid: a1547d0ff5000b249979b93bed7b9881, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 076150addcbc9594dbae9c3fa04cbf1e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1547d0ff5000b249979b93bed7b9881, type: 3}
 --- !u!1001 &8273039286026188537
