@@ -20,6 +20,13 @@ namespace GC.GlitchCoreProject
             set;
         }
 
+        [field:SerializeField]
+        public string itemDesc
+        {
+            get;
+            set;
+        }
+
         public void Buy()
         {
             GunManager.instance.usableGuns.Add(2);

@@ -25,6 +25,10 @@ namespace GC.GlitchCoreProject
             item1 = items[(int)Random.Range(0, items.Count)].transform.gameObject;
             Instantiate(item1, itemPos1.position, itemPos1.rotation);
             items.Remove(item1);
+
+            item2 = items[(int)Random.Range(0, items.Count)].transform.gameObject;
+            Instantiate(item2, itemPos2.position, itemPos2.rotation);
+            items.Remove(item2);
         }
     }
 }

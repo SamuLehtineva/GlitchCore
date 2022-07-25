@@ -20,6 +20,13 @@ namespace GC.GlitchCoreProject
             set;
         }
 
+        [field:SerializeField]
+        public string itemDesc
+        {
+            get;
+            set;
+        }
+
         public void Buy()
         {
             PlayerStats.instance.fireDelayMod += 0.25f;

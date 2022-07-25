@@ -17,6 +17,12 @@ namespace GC.GlitchCoreProject
             get;
             set;
         }
+
+        string itemDesc
+        {
+            get;
+            set;
+        }
         
         void Buy();
     }
