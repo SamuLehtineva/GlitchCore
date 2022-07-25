@@ -30,25 +30,34 @@ namespace GC.GlitchCoreProject
 
         void CheckForInteraction()
         {
-            
             if (Physics.Raycast(transform.position, orientation.forward, out hit, range, ~13))
             {
-                Debug.Log("item");
                 item = hit.transform.gameObject.GetComponent<IShopItem>();
                 if (item != null)
                 {
+                    UIManager.instance.item = item;
                     UIManager.instance.ToggleItemInfo(true);
                 } 
             }
             else
             {
-                UIManager.instance.ToggleItemInfo(false);  
+                UIManager.instance.ToggleItemInfo(false);
+                item = null;
             }
         }
 
         void Interact(InputAction.CallbackContext context)
         {
-            if (Physics.Raycast(transform.position, orientation.forward, out hit, range))
+            if (item != null)
+            {
+                if (PlayerStats.instance.money >= item.price)
+                {
+                    item.Buy();
+                    PlayerStats.instance.money -= item.price;
+                    ShopController.instance.Randomize();
+                }
+            }
+            /*if (Physics.Raycast(transform.position, orientation.forward, out hit, range))
             {
                 if (hit.transform.gameObject.layer == 13)
                 {
@@ -59,7 +68,7 @@ namespace GC.GlitchCoreProject
                         item.Buy();
                     }
                 }
-            }
+            }*/
         }
 
         void OnDisable()

@@ -153,5 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34cac7abf5393647958f0fa3e0a836a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <itemName>k__BackingField: Calf Accelerator module
+  <itemName>k__BackingField: Leg accelerator
   <price>k__BackingField: 120
+  <itemDesc>k__BackingField: Increases movement speed

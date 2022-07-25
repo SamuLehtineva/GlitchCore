@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <itemName>k__BackingField: Rocket Launcher
   <price>k__BackingField: 200
+  <itemDesc>k__BackingField: Fires exploding projectiles
 --- !u!1001 &7211646679951425413
 PrefabInstance:
   m_ObjectHideFlags: 0

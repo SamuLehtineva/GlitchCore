@@ -153,6 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa1258586d50aa4abd143e8c955daf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <itemName>k__BackingField: Trigger finger overclocker
+  <itemName>k__BackingField: Overclocker
   <price>k__BackingField: 220
-  <itemDesc>k__BackingField: 
+  <itemDesc>k__BackingField: Increases fire rate
