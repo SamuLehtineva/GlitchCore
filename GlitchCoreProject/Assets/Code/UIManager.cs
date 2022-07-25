@@ -8,7 +8,7 @@ namespace GC.GlitchCoreProject
     public class UIManager : MonoBehaviour
     {
         public static UIManager instance;
-        public GameObject ItemText;
+        public GameObject itemText;
         public TMP_Text nameTxt;
         public TMP_Text priceTxt;
         public TMP_Text descTxt;
@@ -19,10 +19,19 @@ namespace GC.GlitchCoreProject
             instance = this;
         }
 
-        // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
-        
+            if (item != null)
+            {
+                nameTxt.text = item.itemName;
+                priceTxt.text = "Price: " + item.price;
+                descTxt.text = item.itemDesc;
+            }
+        }
+
+        public void ToggleItemInfo(bool value)
+        {
+            itemText.SetActive(value);
         }
     }
 }

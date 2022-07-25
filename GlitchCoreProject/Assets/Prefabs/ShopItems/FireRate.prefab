@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 203782817989363975}
   - component: {fileID: 203782817989363972}
   - component: {fileID: 203782817989363973}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 203782819029256820}
   - component: {fileID: 203782819029256822}
   - component: {fileID: 203782819029256823}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: FireRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,3 +155,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <itemName>k__BackingField: Trigger finger overclocker
   <price>k__BackingField: 220
+  <itemDesc>k__BackingField: 
