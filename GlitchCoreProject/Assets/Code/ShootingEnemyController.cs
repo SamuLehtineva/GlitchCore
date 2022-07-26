@@ -20,6 +20,7 @@ namespace GC.GlitchCoreProject
             navAgent = GetComponent<NavMeshAgent>();
             player = GameObject.FindObjectOfType<PlayerController>();
             animator = GetComponentInChildren<Animator>();
+            stats = GetComponent<EnemyStats>();
         }
 
         // Start is called before the first frame update
@@ -36,12 +37,24 @@ namespace GC.GlitchCoreProject
             if (navAgent.remainingDistance < attackDistance)
             {
                 animator.SetTrigger("Attack");
+                transform.LookAt(player.transform);
             }
+
+            if (stats.currentHealth <= 0)
+            {
+                Die();
+            } 
         }
 
         private void Seek()
         {
             navAgent.SetDestination(player.transform.position);
+        }
+
+        public void Die()
+        {
+            GetComponent<NavMeshAgent>().enabled = false;
+            Destroy(gameObject);
         }
     }
 }
