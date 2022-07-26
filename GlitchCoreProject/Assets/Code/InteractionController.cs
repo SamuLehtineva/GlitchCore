@@ -14,6 +14,7 @@ namespace GC.GlitchCoreProject
         RaycastHit hit;
         private PlayerInput playerInput;
         private IShopItem item;
+        private int itemLayer;
 
         void Start()
         {
@@ -30,9 +31,10 @@ namespace GC.GlitchCoreProject
 
         void CheckForInteraction()
         {
-            if (Physics.Raycast(transform.position, orientation.forward, out hit, range, ~13))
+            if (Physics.Raycast(transform.position, orientation.forward, out hit, range, LayerMask.GetMask("ShopItem", "ShopItem2")))
             {
                 item = hit.transform.gameObject.GetComponent<IShopItem>();
+                itemLayer = hit.transform.gameObject.layer;
                 if (item != null)
                 {
                     UIManager.instance.item = item;
@@ -54,6 +56,14 @@ namespace GC.GlitchCoreProject
                 {
                     item.Buy();
                     PlayerStats.instance.money -= item.price;
+                    if (itemLayer == 13)
+                    {
+                        ShopController.instance.GetItem1();
+                    }
+                    else if (itemLayer == 14)
+                    {
+                        ShopController.instance.GetItem2();
+                    }
                     ShopController.instance.Randomize();
                 }
             }
