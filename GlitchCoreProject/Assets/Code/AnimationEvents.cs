@@ -12,29 +12,16 @@ namespace GC.GlitchCoreProject
         public Transform rightArm, leftArm;
         Rigidbody rbLeft, rbRight;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        
+        
 
         private void Attack()
         {
             currentRightBullet = Instantiate(bullet, rightArm.position, rightArm.rotation);
-            rbRight = currentRightBullet.GetComponent<Rigidbody>();
-
-            rbRight.AddForce(transform.forward * shootSpeed, ForceMode.VelocityChange);
+            
 
             currentLeftBullet = Instantiate(bullet, leftArm.position, leftArm.rotation);
-            rbLeft = currentLeftBullet.GetComponent<Rigidbody>();
-
-            rbLeft.AddForce(transform.forward * shootSpeed, ForceMode.VelocityChange);
+            
         }
     }
 }
