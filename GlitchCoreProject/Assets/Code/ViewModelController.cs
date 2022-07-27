@@ -18,7 +18,7 @@ namespace GC.GlitchCoreProject
         {
             instance = this;
         }
-        
+
         void Start()
         {
             currentModelIndex = 0;

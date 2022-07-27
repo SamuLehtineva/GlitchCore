@@ -10,6 +10,7 @@ namespace GC.GlitchCoreProject
         public Transform orientation;
         public float baseFireDelay = 20;
         public InputManager inputManager;
+        public Transform muzzlePos;
 
         float fireDelay;
         private PlayerInput playerInput;
@@ -46,6 +47,11 @@ namespace GC.GlitchCoreProject
                     }
 				}
                 fireTimer = 0f;
+
+                if (muzzlePos != null)
+                {
+                    EffectManager.instance.SpawnEffect(3, muzzlePos.position, transform.rotation);
+                }
 			}
 		}
 
