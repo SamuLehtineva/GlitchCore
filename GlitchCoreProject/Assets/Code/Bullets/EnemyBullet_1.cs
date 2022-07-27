@@ -27,8 +27,9 @@ namespace GC.GlitchCoreProject
         void CheckHit()
 		{
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 0.2f, ~layerMask))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 0.2f))
 			{
+                Debug.Log("kmshsdfh");
                 EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
                 PlayerStats stats = hit.collider.gameObject.GetComponent<PlayerStats>();
                 if (stats != null)
