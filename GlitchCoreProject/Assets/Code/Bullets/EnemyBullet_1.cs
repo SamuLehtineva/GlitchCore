@@ -27,7 +27,7 @@ namespace GC.GlitchCoreProject
         void CheckHit()
 		{
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 0.2f))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 0.2f, ~layerMask))
 			{
                 Debug.Log("kmshsdfh");
                 EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
@@ -35,7 +35,6 @@ namespace GC.GlitchCoreProject
                 if (stats != null)
 				{
                     stats.Damage(25);
-                    hit.rigidbody.AddForce(transform.forward * 500f);
 				}
                 else if (hit.collider.gameObject.layer == 6)
 				{

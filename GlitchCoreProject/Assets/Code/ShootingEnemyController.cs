@@ -23,13 +23,6 @@ namespace GC.GlitchCoreProject
             stats = GetComponent<EnemyStats>();
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
-        // Update is called once per frame
         void Update()
         {
             Seek();
@@ -54,7 +47,7 @@ namespace GC.GlitchCoreProject
         public void Die()
         {
             GetComponent<NavMeshAgent>().enabled = false;
-            Destroy(gameObject);
+            Destroy(this);
         }
     }
 }
