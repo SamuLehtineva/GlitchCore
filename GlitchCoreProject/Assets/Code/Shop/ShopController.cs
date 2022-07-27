@@ -32,7 +32,11 @@ namespace GC.GlitchCoreProject
                 
                 if (items.Count > 1)
                 {
-                    item2 = items[(int)Random.Range(0, items.Count)].transform.gameObject;
+                    do
+                    {
+                        item2 = items[(int)Random.Range(0, items.Count)].transform.gameObject;
+                    }
+                    while (item2 == item1);
                     current2 = Instantiate(item2, itemPos2.position, itemPos2.rotation);
                     current2.layer = 14;
                 }
