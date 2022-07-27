@@ -36,7 +36,7 @@ namespace GC.GlitchCoreProject
                     DecalManager.instance.CreateDecal(hit, 0);
                 }
 
-                EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
+                EffectManager.instance.SpawnEffect(2, transform.position, transform.rotation);
                 Explode();
                 Destroy(this.gameObject);
             }
