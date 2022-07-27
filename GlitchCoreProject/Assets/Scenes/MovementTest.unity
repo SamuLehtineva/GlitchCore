@@ -840,10 +840,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 49670979}
     - target: {fileID: 1193945077, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 1376791239752005809, guid: 5433b9589956fc74380963e318dde0b4, type: 3}
-    - target: {fileID: 1193945077, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: spawnPos
       value: 
       objectReference: {fileID: 1736646770}
@@ -867,14 +863,6 @@ PrefabInstance:
       propertyPath: playerLook
       value: 
       objectReference: {fileID: 22694538}
-    - target: {fileID: 1781701953, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: money
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781701953, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: moveSpeedMod
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1800707215, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: orientation
       value: 
@@ -886,10 +874,6 @@ PrefabInstance:
     - target: {fileID: 2013542535637914483, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2013542535637914493, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
-      propertyPath: baseMoveSpeed
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2013542535637914495, guid: 14ec1ea742ae3c54ea026eaedfad4221, type: 3}
       propertyPath: m_RootOrder
@@ -2529,18 +2513,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6375757375869732499, guid: ef4ff43c828685342b341b39d5888c29, type: 3}
-      propertyPath: effects.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6375757375869732499, guid: ef4ff43c828685342b341b39d5888c29, type: 3}
-      propertyPath: effects.Array.data[2]
-      value: 
-      objectReference: {fileID: 1743445103862681568, guid: 4b30bf22d8c7f4f4488bbf663cafacd7, type: 3}
-    - target: {fileID: 6375757375869732499, guid: ef4ff43c828685342b341b39d5888c29, type: 3}
-      propertyPath: effects.Array.data[3]
-      value: 
-      objectReference: {fileID: 6344997494727903462, guid: dfa147ba418a7eb4d8a1c159ad3dada7, type: 3}
     - target: {fileID: 6375757377268880148, guid: ef4ff43c828685342b341b39d5888c29, type: 3}
       propertyPath: m_Name
       value: Managers

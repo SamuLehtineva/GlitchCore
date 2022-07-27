@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 0}
-  fireDelay: 45
+  baseFireDelay: 45
   inputManager: {fileID: 0}
 --- !u!1 &1070091813
 GameObject:
@@ -90,8 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 0}
-  fireDelay: 20
+  baseFireDelay: 20
   inputManager: {fileID: 0}
+  muzzlePos: {fileID: 0}
 --- !u!1 &1193945075
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,11 +136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035a2234fae5b8341b8cf11e81da8edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3451112603183487514, guid: d8708c50da71b6f4b89918f6de0ac1d3, type: 3}
-  fireDelay: 50
+  bullet: {fileID: 1376791239752005809, guid: 5433b9589956fc74380963e318dde0b4, type: 3}
+  baseFireDelay: 50
   playerLook: {fileID: 0}
   spawnPos: {fileID: 0}
   inputManager: {fileID: 0}
+  muzzlePos: {fileID: 0}
 --- !u!1 &1579878617
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4893728612950516798, guid: b59ffe7c9be5b7449bb50d5f0b694fe7, type: 3}
   bullet2: {fileID: 8399777283760812786, guid: 03abc3f8353af1e41ab4ef0b3d5b42bd, type: 3}
-  fireDelay: 7
+  baseFireDelay: 7
   playerLook: {fileID: 0}
   spawnPos: {fileID: 0}
 --- !u!1 &1800707213
@@ -397,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 1814571637}
-  moveSpeed: 10
+  baseMoveSpeed: 10
   groundDrag: 4
   jumpSpeed: 12
   jumpCooldown: 0.25
@@ -438,7 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   currentHealth: 0
-  money: 50
+  money: 500
   maxHealthMod: 1
   moveSpeedMod: 1
   fireDelayMod: 1
