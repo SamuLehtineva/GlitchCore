@@ -492,25 +492,21 @@ MonoBehaviour:
   - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
     shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
     spawnTime: 2
-    nextWaveTime: 25
-    pauseTime: 0
+    nextWaveTime: 12
   - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
     shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
     spawnTime: 2
-    nextWaveTime: 23
-    pauseTime: 0
+    nextWaveTime: 17
   - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
     shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
     spawnTime: 2
-    nextWaveTime: 33
-    pauseTime: 0
+    nextWaveTime: 22
   spawnPoints:
   - {fileID: 1439182968}
   - {fileID: 582883981}
   - {fileID: 384483699}
   - {fileID: 1319517298}
   - {fileID: 939634231}
-  pauseTimer: 10
 --- !u!4 &671842279
 Transform:
   m_ObjectHideFlags: 0
