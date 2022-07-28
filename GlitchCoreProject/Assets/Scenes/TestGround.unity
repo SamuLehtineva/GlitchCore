@@ -8093,7 +8093,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &442312617
 Mesh:
@@ -11732,26 +11732,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - boxEnemy: {fileID: 0}
-    shootingEnemy: {fileID: 0}
+  - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
+    shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
     spawnTime: 2
-    nextWaveTime: 0
-  - boxEnemy: {fileID: 0}
-    shootingEnemy: {fileID: 0}
+  - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
+    shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
     spawnTime: 2
-    nextWaveTime: 15
-  - boxEnemy: {fileID: 0}
-    shootingEnemy: {fileID: 0}
+  - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
+    shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
     spawnTime: 2
-    nextWaveTime: 30
-  - boxEnemy: {fileID: 0}
-    shootingEnemy: {fileID: 0}
-    spawnTime: 2
-    nextWaveTime: 45
-  - boxEnemy: {fileID: 0}
-    shootingEnemy: {fileID: 0}
-    spawnTime: 2
-    nextWaveTime: 45
   spawnPoints:
   - {fileID: 1047488128}
   - {fileID: 1217460244}
@@ -11762,6 +11751,7 @@ MonoBehaviour:
   - {fileID: 660632804}
   - {fileID: 1805653724}
   - {fileID: 1134129293}
+  destroyTimer: 15
 --- !u!4 &615886764
 Transform:
   m_ObjectHideFlags: 0
@@ -13385,7 +13375,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660632803
 GameObject:
@@ -25780,7 +25770,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1025462328 stripped
 Transform:

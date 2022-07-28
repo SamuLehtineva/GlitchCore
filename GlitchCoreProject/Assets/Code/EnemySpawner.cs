@@ -12,7 +12,6 @@ namespace GC.GlitchCoreProject
             public GameObject boxEnemy, shootingEnemy;
             public float spawnTime;
             
-            
         }
 
         public enum State
@@ -30,10 +29,12 @@ namespace GC.GlitchCoreProject
         private Transform[] spawnPoints;
 
         private float spawnTimer;
+
         [SerializeField]
         private float destroyTimer = 15;
         private float addTime;
-        
+
+        [SerializeField]
         private float pauseTimer = 30;
 
         private GameObject spawnedEnemy;
