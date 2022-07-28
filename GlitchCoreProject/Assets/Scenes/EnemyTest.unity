@@ -224,6 +224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootingEnemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
 --- !u!1 &425524433
@@ -485,29 +489,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies:
-    - {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
-    - {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
+  - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
+    shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
     spawnTime: 2
-    nextWaveTime: 0
-    enemyNum: 2
-  - enemies:
-    - {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
-    - {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
-    spawnTime: 2
-    nextWaveTime: 15
-    enemyNum: 5
-  - enemies:
-    - {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
+    nextWaveTime: 25
+    pauseTime: 0
+  - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
+    shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
     spawnTime: 2
     nextWaveTime: 23
-    enemyNum: 8
+    pauseTime: 0
+  - boxEnemy: {fileID: 8273039285532562042, guid: a89d12a495c682c4b86a182207460bfa, type: 3}
+    shootingEnemy: {fileID: 3263963533199317263, guid: 502696770b4355d449b5aa500121dbb8, type: 3}
+    spawnTime: 2
+    nextWaveTime: 33
+    pauseTime: 0
   spawnPoints:
   - {fileID: 1439182968}
   - {fileID: 582883981}
   - {fileID: 384483699}
   - {fileID: 1319517298}
   - {fileID: 939634231}
+  pauseTimer: 10
 --- !u!4 &671842279
 Transform:
   m_ObjectHideFlags: 0
