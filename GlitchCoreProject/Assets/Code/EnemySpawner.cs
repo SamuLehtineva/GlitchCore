@@ -11,7 +11,7 @@ namespace GC.GlitchCoreProject
         {
             public GameObject boxEnemy, shootingEnemy;
             public float spawnTime;
-            public float nextWaveTime;
+            
             
         }
 
@@ -30,10 +30,11 @@ namespace GC.GlitchCoreProject
         private Transform[] spawnPoints;
 
         private float spawnTimer;
-
-        private float destroyTimer;
+        [SerializeField]
+        private float destroyTimer = 15;
+        private float addTime;
         
-        private float pauseTimer = 10;
+        private float pauseTimer = 30;
 
         private GameObject spawnedEnemy;
 
@@ -51,7 +52,7 @@ namespace GC.GlitchCoreProject
         {
             currentWave = waves[round];
             spawnTimer = currentWave.spawnTime;
-            destroyTimer = currentWave.nextWaveTime;
+            
             isSpawning = true;
             boxEnemyNum = 0;
             shootingEnemyNum = 0;
@@ -87,11 +88,12 @@ namespace GC.GlitchCoreProject
                             {
 
                             pauseTimer -= Time.deltaTime;
+                            
 
                                 if (pauseTimer <= 0)
                                 {
                                     round = 0;
-                                    pauseTimer = 10;
+                                    pauseTimer = 30;
 
                                     isSpawning = true;
 
@@ -111,9 +113,11 @@ namespace GC.GlitchCoreProject
                     if (destroyTimer > 0)
                     {
                         destroyTimer -= Time.deltaTime;
+                        
                         if (destroyTimer <= 0 || !IsAlive())
                         {  
                             ChangeState();
+                            destroyTimer = 15 + addTime;
                         }
                     }
                     break;
@@ -123,8 +127,9 @@ namespace GC.GlitchCoreProject
         private void Spawn()
         {
             
-            boxEnemyNum += 1;
+            boxEnemyNum += 2;
             shootingEnemyNum += 1;
+            addTime += 3;
 
             for (int i = 0; i < boxEnemyNum; i++)
             {
@@ -145,6 +150,7 @@ namespace GC.GlitchCoreProject
 
         private void NextWave()
         {
+            
             
             if (round + 1 < waves.Length)
             {
@@ -176,7 +182,7 @@ namespace GC.GlitchCoreProject
                     : State.WaitingForDestroy;
 
             spawnTimer = currentWave.spawnTime;
-            destroyTimer = currentWave.nextWaveTime;
+            
         }
     }
 }
