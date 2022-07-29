@@ -10,7 +10,7 @@ namespace GC.GlitchCoreProject
         public float moveSpeed;
         public float attackDistance;
 
-        private PlayerController player;
+        public PlayerController player;
         private NavMeshAgent navAgent;
         private Animator animator;
         private EnemyStats stats;

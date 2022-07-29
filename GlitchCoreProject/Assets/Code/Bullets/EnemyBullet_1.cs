@@ -10,7 +10,7 @@ namespace GC.GlitchCoreProject
         public float lifeTime;
 
         float timer = 0.0f;
-        int layerMask = 12;
+        int layerMask = (1 << 12) | (1 << 11);
 
         void Update()
         {
@@ -29,12 +29,12 @@ namespace GC.GlitchCoreProject
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, 0.2f, ~layerMask))
 			{
-                
+                Debug.Log(hit.transform.gameObject.layer);
                 EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
                 PlayerStats stats = hit.collider.gameObject.GetComponent<PlayerStats>();
                 if (stats != null)
 				{
-                    Debug.Log("kmshsdfh");
+                    Debug.Log("kkkkkk");
                     stats.Damage(25);
 				}
                 else if (hit.collider.gameObject.layer == 6)
@@ -47,7 +47,10 @@ namespace GC.GlitchCoreProject
 
         void OnCollisionEnter(Collision other)
         {
-            EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
+            Debug.Log(other.gameObject.layer);
+            if (other.gameObject.layer != 11)
+            {
+                EffectManager.instance.SpawnEffect(0, transform.position, transform.rotation);
             PlayerStats stats = other.collider.gameObject.GetComponent<PlayerStats>();
             if (stats != null)
 			{
@@ -55,6 +58,8 @@ namespace GC.GlitchCoreProject
                 stats.Damage(25);
 			}
             Destroy(gameObject);
+            }
+            
         }
     }
 }
