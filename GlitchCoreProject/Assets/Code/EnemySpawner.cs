@@ -70,6 +70,7 @@ namespace GC.GlitchCoreProject
                         if (spawnTimer > 0)
                         {
                             spawnTimer -= Time.deltaTime;
+
                             if (spawnTimer <= 0)
                             {
                                 Spawn();
@@ -84,13 +85,9 @@ namespace GC.GlitchCoreProject
                         if (!IsAlive())
                         {
                             // waves stop
-
                             if (pauseTimer > 0)
                             {
-
-                            pauseTimer -= Time.deltaTime;
-                            
-
+                                pauseTimer -= Time.deltaTime;
                                 if (pauseTimer <= 0)
                                 {
                                     round = 0;
@@ -114,7 +111,7 @@ namespace GC.GlitchCoreProject
                     if (destroyTimer > 0)
                     {
                         destroyTimer -= Time.deltaTime;
-                        
+                        UIManager.instance.timerTxt.text = "" + (int)destroyTimer;
                         if (destroyTimer <= 0 || !IsAlive())
                         {  
                             ChangeState();

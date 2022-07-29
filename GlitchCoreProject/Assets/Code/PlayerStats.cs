@@ -8,7 +8,7 @@ namespace GC.GlitchCoreProject
     {
         public static PlayerStats instance;
         public int maxHealth = 100;
-        public float currentHealth;
+        public int currentHealth;
         public int money = 50;
 
         [Header("Modifiers")]
@@ -31,6 +31,7 @@ namespace GC.GlitchCoreProject
 			{
                 Die();
 			}
+            UIManager.instance.healthTxt.text = "Health: " + currentHealth;
 		}
 
         public void Die()

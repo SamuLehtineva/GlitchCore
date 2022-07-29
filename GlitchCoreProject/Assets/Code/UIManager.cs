@@ -8,11 +8,19 @@ namespace GC.GlitchCoreProject
     public class UIManager : MonoBehaviour
     {
         public static UIManager instance;
+        [Header("Player Stats")]
+        public TMP_Text healthTxt;
+
+        [Header("Interaction")]
         public GameObject itemText;
         public TMP_Text nameTxt;
         public TMP_Text priceTxt;
         public TMP_Text descTxt;
         public IShopItem item;
+
+        [Header("Waves")]
+        public TMP_Text waveTxt;
+        public TMP_Text timerTxt;
 
         void Awake()
         {
