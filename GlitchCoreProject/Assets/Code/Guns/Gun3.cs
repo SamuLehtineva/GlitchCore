@@ -31,6 +31,7 @@ namespace GC.GlitchCoreProject
 		{
             if (fireTimer >= fireDelay)
 			{
+                ViewModelController.instance.PlayFireAnim();
                 Transform orientation = playerLook.transform;
                 GameObject current = Instantiate(bullet, spawnPos.position, orientation.rotation);
                 if (playerLook.GetTarget() != Vector3.zero)
