@@ -31,6 +31,7 @@ namespace GC.GlitchCoreProject
             if (fireTimer >= fireDelay)
 			{
                 ViewModelController.instance.PlayFireAnim();
+                PlayerAudio.instance.PlayClip(0);
                 Debug.DrawLine(transform.position, orientation.forward * 50, Color.black, 5f);
                 if (Physics.Raycast(transform.position, orientation.forward, out hit, 50f))
 				{
