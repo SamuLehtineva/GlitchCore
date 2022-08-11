@@ -17,6 +17,11 @@ namespace GC.GlitchCoreProject
             SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
 		}
 
+        public static void UnloadLevel(string name)
+        {
+            SceneManager.UnloadSceneAsync(name);
+        }
+
         public static void QuitGame()
 		{
             Debug.Log("Quit");

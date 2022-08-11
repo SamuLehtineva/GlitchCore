@@ -1,38 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace GC.GlitchCoreProject
 {
     public class GameController : MonoBehaviour
     {
-		public bool lockFps;
-		public bool vSync;
+		public static GameController instance;
+		public bool isPaused;
 
-		private void Awake()
+        private PlayerInput playerInput;
+
+		void Awake()
 		{
-			if (vSync)
+			instance = this;
+			isPaused = false;
+            playerInput = new PlayerInput();
+		}
+
+		void Pause(InputAction.CallbackContext context)
+		{
+			TogglePause();
+		}
+
+		public void TogglePause()
+		{
+			/*if (!Application.isEditor)
 			{
-				QualitySettings.vSyncCount = 1;
+				SceneChanger.LoadLevelAdditive("PauseMenu");
+			}*/
+			if (!isPaused)
+			{
+				isPaused = true;
+				Time.timeScale = 0.0f;
+				SceneChanger.LoadLevelAdditive("PauseMenu");
+				Cursor.lockState = CursorLockMode.Confined;
+				Cursor.visible = true;
 			}
 			else
 			{
-				QualitySettings.vSyncCount = 0;
-			}
-			
-			if (lockFps)
-			{
-				Application.targetFrameRate = 60;
-			}
-			else
-			{
-				Application.targetFrameRate = -1;
+				isPaused = false;
+				Time.timeScale = 1.0f;
+				SceneChanger.UnloadLevel("PauseMenu");
+				Cursor.lockState = CursorLockMode.Locked;
+            	Cursor.visible = false;
 			}
 		}
 
-		private void Update()
+		void OnEnable()
 		{
-			
+			playerInput.HUD.Pause.Enable();
+			playerInput.HUD.Pause.performed += Pause;
+		}
+
+		void OnDisable()
+		{
+			playerInput.HUD.Pause.Disable();
 		}
 	}
 }
